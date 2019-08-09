@@ -56,15 +56,15 @@ $(document).ready(function(){
     //AJAX Request
     function load_data_queue(view = ''){
 	$.ajax({
-	    url:"../includes/fetchQueue.inc.php",
-	    method:"POST",
-	    data:{view:view},
-	    dataType:"json",
-	    success:function(data){
-		$('#tbody-brews').html(data.queue_list);
-		if(data.queue_count > 0){
-			$('.count').html(data.queue_count);
-		}
+		    url:"../includes/fetchQueue.inc.php",
+		    method:"POST",
+		    data:{view:view},
+		    dataType:"json",
+		    success:function(data){
+				$('#tbody-brews').html(data.queue_list);
+				if(data.queue_count > 0){
+					$('.count').html(data.queue_count);
+			}
 	    }	
 	}) 
     }
@@ -76,7 +76,7 @@ $(document).ready(function(){
 	    data: {text:text},
 	    dataType: "json",
 	    success: function(data){
-		$('#test').html(data.alert);
+			$('#test').html(data.alert);
 	    }
 		
 	})

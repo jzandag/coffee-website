@@ -2,7 +2,7 @@
 
 if(isset($_POST['brew-submit'])){
 	
-	require '../smart-coffee/includes/dbh.inc.php';
+	require '../includes/dbh.inc.php';
 	
 	$coffeeLevel = $_POST['coffeeLevel'];
 	$sugarLevel = $_POST['sugarLevel'];
@@ -44,12 +44,12 @@ if(isset($_POST['brew-submit'])){
 			userID = ?;";
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt,$sql)){
-		header("Location: ../smart-coffee/View/dashboard.php?error=brewFail");
+		header("Location: ../View/dashboard.php?error=brewFail");
 		exit();
 	}else{
 		mysqli_stmt_bind_param($stmt,"ssssss", $applicationDate, $brewDate,$coffeeLevel, $creamerLevel,$sugarLevel,$_POST['userid']);
 		mysqli_stmt_execute($stmt);
-		header("Location: ../smart-coffee/View/dashboard.php?brewApplication=success");
+		header("Location: ../View/dashboard.php?brewApplication=success");
 		exit();
 	
 	

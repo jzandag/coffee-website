@@ -10,7 +10,7 @@ if(isset($_POST['login-submit'])){
 	$sql = "SELECT * FROM users WHERE username=? OR email=?;";
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt,$sql)){
-		header("Location: ../smart-coffee/index.php?error=sqlerror");
+		header("Location: ../coffee-website/index.php?error=sqlerror");
 		exit();
 	}else{
 		mysqli_stmt_bind_param($stmt,"ss", $mailUsername, $mailUsername);

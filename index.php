@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['username'])){
-	header("Location: ../smart-coffee/View/dashboard.php");
+	header("Location: ../coffee-website/View/dashboard.php");
 	exit();
     }
     
@@ -17,15 +17,15 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Login</title>
 
-    <script src="../smart-coffee/js/common.js"></script>
-    <script src="../smart-coffee/js/jquery-3.3.1.min.js"></script>
-    <script src="../smart-coffee/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../coffee-website/js/common.js"></script>
+    <script src="../coffee-website/js/jquery-3.3.1.min.js"></script>
+    <script src="../coffee-website/js/bootstrap/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="../smart-coffee/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../smart-coffee/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../smart-coffee/css/homepage.css" />
+    <link rel="stylesheet" href="../coffee-website/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../coffee-website/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../coffee-website/css/homepage.css" />
 
-    <link rel="shortcut icon" href="../smart-coffee/images/hot-coffee-icon.png" />
+    <link rel="shortcut icon" href="../coffee-website/images/hot-coffee-icon.png" />
 
 </head>
 <body>
@@ -40,7 +40,7 @@
 	    </div>
 
 	    <!-- Login Form -->
-	    <form method="post" action="../smart-coffee/includes/login.inc.php">
+	    <form method="post" action="../coffee-website/includes/login.inc.php">
 		<input type="text" id="login" class="fadeIn second" name="emailUsername" placeholder="Username/email...">
 		<input type="password" id="login" class="fadeIn third" name="password" placeholder="password...">
 		<?php

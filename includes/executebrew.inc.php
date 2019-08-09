@@ -81,7 +81,7 @@ else if(isset($_POST['executebrew-submit'])){
 		mysqli_stmt_execute($stmt);
 		//shell_exec('sudo python /var/www/html/script/coffee.py ' .$coffeeLevel.' ' .$sugarLevel.' ' .$creamerLevel);	
 		
-		header("Location: ../smart-coffee/View/dashboard.php?brew=success");
+		header("Location: ../View/dashboard.php?brew=success");
 		exit();
 	
 	

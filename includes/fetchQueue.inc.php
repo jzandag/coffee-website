@@ -31,9 +31,9 @@ if(isset($_POST['view'])){
 			<tr><td colspan=5 class="danger text-center" ><a href="#" class="text-bold text-italic">No scheduled brew</td></tr>
 		';
 	}
-	$query_number = "SELECT * FROM coffee_request WHERE status = 0";
-	$result_0 = mysqli_query($conn, $query_1);
-	$count = mysqli_num_rows($result_0);
+	$queryZeroStatus = "SELECT * FROM coffee_request WHERE status = 0";
+	$resultZeroStatus = mysqli_query($conn, $queryZeroStatus);
+	$count = mysqli_num_rows($resultZeroStatus);
 	$data = array(
 		'queue_list' 	=> $output,
 		'queue_count' 	=> $count

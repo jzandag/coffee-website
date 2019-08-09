@@ -2,7 +2,7 @@
 	session_start();
 
 	if(!isset($_SESSION['username'])){
-		header("Location: http://localhost/smart-coffee/index.php?error=notlogged");
+		header("Location: http://localhost/coffee-website/index.php?error=notlogged");
 	
 		exit();
 	}
