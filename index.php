@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="../coffee-website/css/font-awesome.min.css">
     <link rel="stylesheet" href="../coffee-website/css/homepage.css" />
 
+    <!-- RESPONSIVENESS CSS -->
+    <link rel="stylesheet" href="../coffee-website/css/common-main.css" />
+
     <link rel="shortcut icon" href="../coffee-website/images/hot-coffee-icon.png" />
 
 </head>

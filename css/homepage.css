@@ -4,15 +4,16 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #db6f27;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background: url(../images/tiles.jpg);
-  background-size: 50px 50px;
-  background-repeat: round;
+  /*background: url(../images/tiles.jpg);*/
+  background-color: #db6f27;
+  background-attachment: fixed;
+  background-position: initial;
 }
 
 a {
