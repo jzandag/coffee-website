@@ -131,7 +131,12 @@
 				    echo '<tr>
 					<td>'.$count.'</td>
 					<td>'.$row['username'].'</td>
-					<td>'.$row['email'].'</td>
+					<td>';
+						if(strlen($row['email']) > 8)
+							echo substr($row['email'],0,7).'...';
+						else
+							echo $row['email'];
+					echo '</td>
 					<!--<td class="td-right">
 					<a class="btn btn-primary btn-flat" data-toggle="tooltip" data-original-title="Edit" href="../View/userprofile.php?username='.$row['username'].'">
 					<i class="filesIcon fa fa-edit icon"></i>

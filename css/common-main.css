@@ -28,4 +28,21 @@
 	#formContent{
 		-webkit-border-radius: 10px 10px 10px 10px !important	; 
 	}
+
+	#formFooter {
+	  padding: 5px;
+	}
+}
+
+/* raspi screen */
+@media only screen and (min-device-width : 400px) and (max-device-width : 700px) and (orientation : landscape) {
+	body {
+	    overflow: hidden;
+	}
+	img {
+		transform: scale(0.4);
+		display: none;
+	}
+	
+
 }
