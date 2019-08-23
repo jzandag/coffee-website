@@ -3,44 +3,39 @@
 
 /*width: 375-667 media query is for iphone 6/7/8 plus*/
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
-	img {
+	/*img {
 		transform: scale(0.9);
-	}
+	}*/
 }
 
 /* Galaxy S5 portrait */
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
-	img{
+	/*img{
 		transform: scale(0.8);
-	}
+	}*/
 }
 
 /* iPhone 5/SE */
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
-	img {
+	/*img {
 		width: auto ;
 		max-width: 100% ;
 		height: auto ;
 		border-radius: 10px 10px 10px 10px !important; 
-	}
+	}*/
 
-	#formContent{
-		-webkit-border-radius: 10px 10px 10px 10px !important	; 
-	}
-
-	#formFooter {
-	  padding: 5px;
-	  font-size: 13px;
-	}
+	[class^="login"] {
+      transform: translateX(-150px) translateY(-200px) scale(2);
+    }
 }
 
 /* raspi screen */
 @media only screen and (min-device-width : 400px) and (max-device-width : 700px) and (orientation : landscape) {
-	body {
+	/*body {
 	    overflow: hidden;
 	}
 	img {
 		transform: scale(0.4);
 		display: none;
-	}
+	}*/
 }
