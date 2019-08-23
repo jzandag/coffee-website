@@ -1,5 +1,6 @@
 <?php
 
+	
 if(isset($_POST['view'])){
 
 	require "dbh.inc.php"; 

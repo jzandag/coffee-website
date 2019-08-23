@@ -70,23 +70,35 @@ $(document).ready(function(){
     }
     
     function load_latest_sched(text = ''){
-	$.ajax({
-	    url: "../includes/executebrew.inc.php",
-	    method: "POST",
-	    data: {text:text},
-	    dataType: "json",
-	    success: function(data){
-			$('#test').html(data.alert);
-	    }
-		
-	})
-		
+		$.ajax({
+		    url: "../includes/executebrew.inc.php",
+		    method: "POST",
+		    data: {text:text},
+		    dataType: "json",
+		    success: function(data){
+				$('#test').html(data.alert);
+		    }
+		})
     }
+
+    function update_list(text = ''){
+    $.ajax({
+        url: "../includes/updateQueueList.inc.php",
+        method: "POST",
+        data: {update: ''},
+        dataType: "json",
+        success: function(data){
+          console.log('update previous unbrewed brews success');
+        }
+    })
+    
+}
     
     load_data_queue();
     load_latest_sched();
     setInterval(function(){
-	load_data_queue();
-	load_latest_sched();
+    	update_list();
+		load_data_queue();
+		load_latest_sched();
     },5000);
 });

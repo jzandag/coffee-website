@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale-1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Pure CSS Slider</title>
+ <link rel="stylesheet" href="css/stylepic.css">
+ <link rel="stylesheet" href="../coffee-website/css/bootstrap/bootstrap.min.css">
+ <link rel="stylesheet" href="../coffee-website/css/font-awesome.min.css">
+ <link rel="stylesheet" href="../coffee-website/css/homepage.css" />
+</head>
+<body>
+ <slider>
+  <slide><div class="wrapper fadeInDown">
+<div id="formContent">
+<!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+  <img src="images/login.jpg" alt="coffee" />
+  <h1>XPRESSO</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form method="post" action="../coffee-website/includes/login.inc.php">
+  <input type="text" id="login" class="fadeIn second" name="emailUsername" placeholder="Username/email...">
+  <input type="password" id="login" class="fadeIn third" name="password" placeholder="password...">
+  <?php
+      if(isset($_GET['error'])){
+    if($_GET['error'] == "wrongpwd"){
+        echo '<p class="signuperror text-danger">Wrong username or password!</p>';
+    }else if($_GET['error'] == "nouser"){
+        echo '<p class="signuperror text-danger">User doesnt exist!</p>';
+    }
+      }
+  ?>
+  <input type="submit" class="fadeIn fourth" name="login-submit" value="Log In">
+
+  <span id="error"></span>
+    </form>
+
+    <!-- dto ka muna
+      <?php
+    if(isset($_GET['error'])){
+        if($_GET['error'] == "sqlerror"){
+      echo '<p class="signuperror">SQL Error!</p>';
+        }
+    }
+      ?>
+  -->
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+  Department of Computer Engineering
+    </div>
+</div>
+  </div></slide>
+  <slide><p>Slide 2</p></slide>
+  <slide><p>Slide 3</p></slide>
+  <slide><p>Slide 4</p></slide>
+ </slider>
+</body>
+</html>

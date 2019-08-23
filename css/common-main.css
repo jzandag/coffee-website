@@ -19,10 +19,9 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
 	img {
 		width: auto ;
-		  max-width: 100% ;
-		  height: auto ;
-		border-radius: 10px 10px 10px 10px !important	; 
-
+		max-width: 100% ;
+		height: auto ;
+		border-radius: 10px 10px 10px 10px !important; 
 	}
 
 	#formContent{
@@ -31,6 +30,7 @@
 
 	#formFooter {
 	  padding: 5px;
+	  font-size: 13px;
 	}
 }
 
@@ -43,6 +43,4 @@
 		transform: scale(0.4);
 		display: none;
 	}
-	
-
 }

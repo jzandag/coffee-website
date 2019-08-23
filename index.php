@@ -1,10 +1,10 @@
 <?php
     session_start();
     if(isset($_SESSION['username'])){
-	header("Location: ../coffee-website/View/dashboard.php");
-	exit();
+		header("Location: ../coffee-website/View/dashboard.php");
+		exit();
     }
-    
+
     //$localip = $_SERVER['HTTP_CLIENT_IP'];
 ?>
 
@@ -17,9 +17,9 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Login</title>
 
-    <script src="../coffee-website/js/common.js"></script>
     <script src="../coffee-website/js/jquery-3.3.1.min.js"></script>
     <script src="../coffee-website/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../coffee-website/js/common.js"></script>
 
     <link rel="stylesheet" href="../coffee-website/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../coffee-website/css/font-awesome.min.css">
@@ -32,6 +32,7 @@
 
 </head>
 <body>
+
     <div class="wrapper fadeInDown">
 	<div id="formContent">
 	<!-- Tabs Titles -->
@@ -61,19 +62,30 @@
 	    </form>
 
 	    <!-- dto ka muna
-	    <?php
-		if(isset($_GET['error'])){
-		    if($_GET['error'] == "sqlerror"){
-			echo '<p class="signuperror">SQL Error!</p>';
-		    }
-		}
-	    ?>
--->
+		    <?php
+			if(isset($_GET['error'])){
+			    if($_GET['error'] == "sqlerror"){
+				echo '<p class="signuperror">SQL Error!</p>';
+			    }
+			}
+		    ?>
+		-->
 	    <!-- Remind Passowrd -->
 	    <div id="formFooter">
 		Department of Computer Engineering
 	    </div>
 	</div>
     </div>
+
+    <script type="text/javascript">
+    	$(document).ready(function() {
+		  update_list_main();
+
+		  setInterval(function(){
+		    update_list_main();
+		  },5000);
+
+		});
+    </script>
 </body>
 </html>

@@ -17,12 +17,12 @@
 
 
 	<title>Homepage</title>
-	<script src="../js/common.js"></script>
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/bootstrap/bootstrap.min.js"></script>
 	<script src="../js/dashboard.js"></script>
 	<script src="../js/bootstrapValidator.min.js"></script>
 	<script src="../js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../js/common.js"></script>
 
 	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
@@ -73,7 +73,7 @@
 			<div class="row">
 				<div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
 					<a href="#" data-toggle="modal" data-target="#brewnow">
-					<div class="box box-primary" id="brewSection">
+					<div class="box box-primary button-custom" id="brewSection">
 						<div class="box-body">
 							<i class="fa fa-crosshairs" style="color=red;"></i> Brew now
 						</div>
@@ -82,7 +82,7 @@
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
 					<a href="#" data-toggle="modal" data-target="#schedbrew">
-					<div class="box box-primary" id="brewSection">
+					<div class="box box-primary button-custom" id="schedSection">
 						<div class="box-body">
 							<i class="fa fa-crosshairs" style="color=red;"></i> Sched Brew 
 						</div>
@@ -91,7 +91,7 @@
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-5">
 					<a href="#" data-toggle="modal" data-target="#roundspaceModal">
-					<div class="box box-primary" id="analyticsSection">
+					<div class="box box-primary button-custom" id="analyticsSection">
 						<div class="box-body">
 							<i class="fa fa-database"></i> Database
 						</div>

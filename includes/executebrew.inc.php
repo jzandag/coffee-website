@@ -20,7 +20,7 @@ if(isset($_POST['text'])){
 				mysqli_stmt_bind_param($stmt,"s",$row['coffeereq_id']);
 				mysqli_stmt_execute($stmt);
 			}
-			
+			//1 means tapos na sa status
 			shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);
 			$update_query = "UPDATE coffee_request SET queue=0 WHERE coffeereq_id = ?";
 			$stmt = mysqli_stmt_init($conn);
