@@ -22,7 +22,7 @@
     <!-- RESPONSIVENESS CSS -->
     <link rel="stylesheet" href="../coffee-website/css/common-main.css" />
 
-    <link rel="shortcut icon" href="../coffee-website/images/hot-coffee-icon.png" /> 
+    <link rel="shortcut icon" href="../coffee-website/images/coffeemask2.png" /> 
 </head>
     <body>
     <div class="login-box">

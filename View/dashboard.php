@@ -45,15 +45,15 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../View/dashboard.php#"><i class="fa fa-coffee" aria-hidden="true"></i> Project Coffee</a>
+				<a class="navbar-brand" href="../View/dashboard.php#"><i class="fa fa-coffee" aria-hidden="true"></i> Project Coffee <?php echo $_SESSION['role']?></a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="active" href="../View/dashboard.php"><i class="fa fa-home"></i> Home</a></li>
 					<li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>	
 					<?php
-					if(isset($_SESSION['username'])){
-						if($_SESSION['username'] == 'admin'){
+					if(isset($_SESSION['role'])){
+						if($_SESSION['role'] == 'admin'){
 							echo '<li><a href="../View/viewUsers.php"><i class="fa fa-gear"></i> System Configuration</a></li>';
 						}
 
@@ -124,7 +124,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">Ã—</span><span class="sr-only">Close</span></button>
 					<h3 class="modal-title" id="lineModalLabel">Brew a coffee</h3>
 				</div>
 				<div class="modal-body">
@@ -184,7 +184,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">Ã—</span><span class="sr-only">Close</span></button>
 					<h3 class="modal-title" id="lineModalLabel">Brew a coffee</h3>
 				</div>
 				<div class="modal-body">
@@ -253,7 +253,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">�</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 					<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
 				</div>
 				<div class="modal-body">

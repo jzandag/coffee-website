@@ -16,8 +16,9 @@
 		$editUsername = '';
 		$editEmail = '';
 		$editPassword = '';
+		$editRole = '';
 		
-		$sql = "SELECT email,username FROM users WHERE id=?";
+		$sql = "SELECT email,username,role FROM users WHERE id=?";
 		$stmt = mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt,$sql)){
 			header("Location: ../View/viewUsers.php?error=sqlerror");
@@ -25,7 +26,7 @@
 		}else{
 			mysqli_stmt_bind_param($stmt,"s",$_GET['id']);
 			mysqli_stmt_execute($stmt);
-			mysqli_stmt_bind_result($stmt,$email,$username);
+			mysqli_stmt_bind_result($stmt,$email,$username,$role);
 			//mysqli_stmt_store_result($stmt);
 			/*$result = mysqli_stmt_get_result($stmt);
 			while($row = mysqli_fetch_assoc($result) ){
@@ -36,6 +37,7 @@
 				$editEmail = $email;
 				echo '<script>alert('.$editEmail.');console.log(\'igot here\');</script>';
 				$editUsername = $username;
+				$editRole = $role;
 			}
 		}
 		mysqli_stmt_close($stmt);
@@ -85,8 +87,8 @@
 					<li><a class="active" href="../View/dashboard.php"><i class="fa fa-home"></i> Home</a></li>
 					<li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>	
 					<?php
-					if(isset($_SESSION['username'])){
-						if($_SESSION['username'] == 'admin'){
+					if(isset($_SESSION['role'])){
+						if($_SESSION['role'] == 'admin'){
 							echo '<li><a href="../View/viewUsers.php"><i class="fa fa-gear"></i> System Configuration</a></li>';
 						}
 
@@ -133,6 +135,21 @@
 									}
 								?>
 								/>
+							</div>
+							<?php if(isset($_GET['id'])){
+									echo '<input type="hidden" name="id" value="'.$_GET['id'].'">';
+								}
+							
+							?>
+							<div class="clearfix"></div>
+							<!-- for type of user -->
+							<div class="form-group col-md-6 col-lg-6 col-xs-12 col-sm-12">
+							    <label for="exampleFormControlSelect1">Role</label>
+							    <select name="role" class="form-control" id="exampleFormControlSelect1">
+							      <option value="user">User</option>
+							      <option value="admin">Admin</option>
+							      <option value="machine">Machine</option>
+							    </select>
 							</div>
 							<?php if(isset($_GET['id'])){
 									echo '<input type="hidden" name="id" value="'.$_GET['id'].'">';

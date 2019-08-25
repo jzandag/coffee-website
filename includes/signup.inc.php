@@ -7,9 +7,10 @@ if(isset($_POST['signup-submit'])){
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$role = $_POST['role'];
 	
 	if(isset($_POST['id'])){
-		$sql = "UPDATE users SET `username`=?, `email`=?, `password`=? WHERE `id`=?";
+		$sql = "UPDATE users SET `username`=?, `email`=?, `password`=?,`role`=? WHERE `id`=?";
 		$stmt = mysqli_stmt_init($conn);
 		
 		if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -18,7 +19,7 @@ if(isset($_POST['signup-submit'])){
 		}else{
 			$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 			
-			mysqli_stmt_bind_param($stmt,"ssss", $username, $email, $hashedPwd, $_POST['id']);
+			mysqli_stmt_bind_param($stmt,"sssss", $username, $email, $hashedPwd,$role, $_POST['id']);
 			mysqli_stmt_execute($stmt);
 			header("Location: ../View/viewUsers.php?update=success");
 			exit();
@@ -40,7 +41,7 @@ if(isset($_POST['signup-submit'])){
 				header("Location: ../View/dashboard.php");
 				exit();
 			}else{
-				$sql = "INSERT INTO users (username,email,password) VALUES (?,?,?);";
+				$sql = "INSERT INTO users (username,email,role,password) VALUES (?,?,?,?);";
 				$stmt = mysqli_stmt_init($conn);
 				if(!mysqli_stmt_prepare($stmt,$sql)){
 					header("Location: ../View/dashboard.php?error=sqlerror");
@@ -48,9 +49,9 @@ if(isset($_POST['signup-submit'])){
 				}else{
 					$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 					
-					mysqli_stmt_bind_param($stmt,"sss", $username, $email, $hashedPwd);
+					mysqli_stmt_bind_param($stmt,"ssss", $username, $email, $role, $hashedPwd);
 					mysqli_stmt_execute($stmt);
-					header("Location: ../View/userProfile.php?signup=success");
+					header("Location: ../View/viewUsers.php?signup=success");
 					exit();
 				}
 				

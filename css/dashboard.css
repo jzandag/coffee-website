@@ -2,7 +2,7 @@
 
  /**** Generic CSS ****************/
 body {
-	background-color: #d08c23; 
+	background-color: #ffffff; 
 	color: black;
 }
 
@@ -24,7 +24,7 @@ html, body{
 .navbar-brand{
 	min-height: 55px;
 	padding: 15px 15px 5px;
-	font-size: 1.5em;
+	font-size: 1.8em;
 	color: #d5d5d5;	
 }
 .navbar-default .navbar-nav li a{
@@ -81,7 +81,7 @@ html, body{
 #queueSection{
 	margin: 4px;
 	border: 1px solid #fff;
-	background: yellow;
+	background: #c9b98b;
 	padding: 10px;
 	height: 20em;	
 	border-radius: 25px;

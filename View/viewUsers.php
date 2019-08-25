@@ -50,8 +50,8 @@
 		    <li><a class="active" href="../View/dashboard.php"><i class="fa fa-home"></i> Home</a></li>
 		    <li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>	
 		    <?php
-		    if(isset($_SESSION['username'])){
-			if($_SESSION['username'] == 'admin'){
+		    if(isset($_SESSION['role'])){
+			if($_SESSION['role'] == 'admin'){
 			    echo '<li><a href="../View/viewUsers.php"><i class="fa fa-gear"></i> System Configuration</a></li>';
 			}
 

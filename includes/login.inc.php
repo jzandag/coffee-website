@@ -25,6 +25,7 @@ if(isset($_POST['login-submit'])){
 				session_start();
 				$_SESSION['id'] = $row['id'];
 				$_SESSION['username'] = $row['username'];
+				$_SESSION['role'] = $row['role'];
 				
 				header("Location: ../View/dashboard.php?login=success");
 				exit();
