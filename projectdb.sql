@@ -33,9 +33,16 @@ CREATE TABLE `coffee_request` (
   PRIMARY KEY (`coffeereq_id`),
   KEY `userID` (`userID`),
   CONSTRAINT `coffee_request_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `coffee_request` */
+
+insert  into `coffee_request`(`coffeereq_id`,`app_date`,`brew_date`,`coffee_level`,`creamer_level`,`sugar_level`,`status`,`userID`,`queue`) values 
+(5,'2019-08-09 21:42:33','2019-08-21 22:50:00',3,4,4,1,2,0),
+(6,'2019-08-09 22:23:43','2019-08-14 11:50:00',3,1,1,1,1,0),
+(7,'2019-08-13 09:53:33','2019-08-16 16:55:00',1,5,1,1,1,0),
+(8,'2019-08-16 13:54:07','2019-08-31 11:55:00',1,1,1,0,1,1),
+(9,'2019-08-23 18:25:55','2019-08-23 18:25:55',2,3,4,1,1,0);
 
 /*Table structure for table `users` */
 
@@ -46,15 +53,18 @@ CREATE TABLE `users` (
   `username` tinytext NOT NULL,
   `email` tinytext NOT NULL,
   `password` longtext NOT NULL,
+  `role` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`email`,`password`) values 
-(1,'test','test','$2y$10$oSliI8ySIZY9v84VwcBjZO2pw/Nh157gg1ezHNpmI7DImejRb77Ey'),
-(2,'admin','zidrexandag10@gmail.com','$2y$10$oSliI8ySIZY9v84VwcBjZO2pw/Nh157gg1ezHNpmI7DImejRb77Ey'),
-(3,'RedTequila ','dendenbuyco@yahoo.com','$2y$10$nikeegNDJHeg92Hygt6mz.LiOZ2BcOiU62WkgHS1QAyv0DySz/rUy');
+insert  into `users`(`id`,`username`,`email`,`password`,`role`) values 
+(1,'test','test','$2y$10$oSliI8ySIZY9v84VwcBjZO2pw/Nh157gg1ezHNpmI7DImejRb77Ey','user'),
+(2,'admin','zidrexandag10@gmail.com','$2y$10$xNdGa1RybCaxZQrtJxgIS.qI8/dyHgxXB/QV0MDIjBYgsttrD1sq.','admin'),
+(3,'RedTequila ','dendenbuyco@yahoo.com','$2y$10$nikeegNDJHeg92Hygt6mz.LiOZ2BcOiU62WkgHS1QAyv0DySz/rUy','user'),
+(4,'raspi','raspi@gmail.com\r\n','$2y$10$oSliI8ySIZY9v84VwcBjZO2pw/Nh157gg1ezHNpmI7DImejRb77Ey','machine'),
+(5,'hellow','hellow@gmail.com','$2y$10$JH0IHuuQ5STNnHRmETqdE.TI5GB6FLNQrtNy508Wmgd3txy90De1m','user');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
