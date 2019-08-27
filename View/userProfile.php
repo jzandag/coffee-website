@@ -64,55 +64,27 @@
 	
 	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
- 	<link rel="stylesheet" href="../css/viewusers.css" />
+ 	<link rel="stylesheet" href="../css/dashboard.css" />
  	<link rel="stylesheet" href="../css/bootstrapValidator.min.css">
 
  	<link rel="shortcut icon" href="../images/hot-coffee-icon.png" />
 </head>
 <body>
-	<!-- navigation bar-->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="../View/dashboard.php#"><i class="fa fa-coffee" aria-hidden="true"></i> Project Coffee</a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse-main">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="active" href="../View/dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-					<li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>	
-					<?php
-					if(isset($_SESSION['role'])){
-						if($_SESSION['role'] == 'admin'){
-							echo '<li><a href="../View/viewUsers.php"><i class="fa fa-gear"></i> System Configuration</a></li>';
-						}
-
-					}
-					?>
-					<li><a href="../includes/logout.inc.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<?php include('../includes/navbar.php'); ?>
     
     <!--Create user form -->
 	<div class="">
 		<form method="post" id="submit_form" action="../includes/signup.inc.php">
-			<div class="page-header">
+			<div class="page-header" style="margin-top:75px;>
 				<div class="container-fluid">
 				
 				</div>
 			</div>
 			<div class="">
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h1>User Profile</h1>
+				<div class="col-md-12" >
+					<div class="panel panel-default" >
+						<div class="panel-heading" >
+							<h1 align="center">User Profile</h1>
 						</div>
 						<div class="panel-body">
 							<div class="form-group col-md-6 col-lg-6 col-xs-12 col-sm-12">
@@ -127,7 +99,7 @@
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-6 col-lg-6 col-xs-12 col-sm-12">
-								<label for="email" class="control-label"><b>E-mail:</b> </label>
+								<label for="email" class="control-label"><b>Email:</b> </label>
 								<input class="form-control" type="text" name="email" autocomplete="off" 
 									<?php
 									if(isset($_GET['id'])){

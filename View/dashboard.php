@@ -43,34 +43,7 @@
 		}
 	</style>
 	<!-- navigation bar-->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="../View/dashboard.php#"><i class="fa fa-coffee" aria-hidden="true"></i> Project Coffee <?php echo $_SESSION['role']?></a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse-main">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="active" href="../View/dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-					<li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>	
-					<?php
-					if(isset($_SESSION['role'])){
-						if($_SESSION['role'] == 'admin'){
-							echo '<li><a href="../View/viewUsers.php"><i class="fa fa-gear"></i> System Configuration</a></li>';
-						}
-
-					}
-					?>
-					<li><a href="../includes/logout.inc.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<?php include('../includes/navbar.php'); ?>
 	
 
 	<!-- confirm navigation bar  -->
@@ -78,32 +51,19 @@
 	<div class="padding">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-3 col-sm-3 col-md-4 col-lg-3">
+				<div class="center" style="margin-top:25px">
+					<div class="col-xs-12 col-sm-4" style="margin-bottom:5px">
 					<a href="#" data-toggle="modal" data-target="#brewnow">
-					<div class="box box-primary button-custom" id="brewSection">
-						<div class="box-body">
-							<i class="fa fa-crosshairs" style="color=red;"></i> Brew now
-						</div>
+						<button class="btn btn-primary btn-block">Brew now</button>
 					</div>
-					</a>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">
+					<div class="col-xs-12 col-sm-4" style="margin-bottom:5px">
 					<a href="#" data-toggle="modal" data-target="#schedbrew">
-					<div class="box box-primary button-custom" id="schedSection">
-						<div class="box-body">
-							<i class="fa fa-crosshairs" style="color=red;"></i> Sched Brew 
-						</div>
+						<button class="btn btn-primary btn-block">Schedule</button>
 					</div>
-					</a>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-5">
-					<a href="#" data-toggle="modal" data-target="#roundspaceModal">
-					<div class="box box-primary button-custom" id="analyticsSection">
-						<div class="box-body">
-							<i class="fa fa-database"></i> Database
-						</div>
-					</div>
-					</a>
+					<div class="col-xs-12 col-sm-4">
+					<a href="#" data-toggle="modal" data-target="">
+						<button class="btn btn-primary btn-block">Analytics</button>
+					</div>	
 				</div>
 			</div>
 			
@@ -111,11 +71,23 @@
 				<table class="table table-hover table-striped table-responsive" style="margin-top: 1px;">
 					<thead>
 						<tr>
-							<th>No.</th>
+						<?php
+						if(isset($_SESSION['role'])){
+							if($_SESSION['role'] == 'admin'){
+								echo '<th>No.</th>
 							<th>Application date</th>
 							<th>Brew Date</th>
 							<th>User</th>
-							<th class="td-right">Status</th>
+							<th class="td-right">Status</th>';
+							}
+							else {
+								echo '<th>No.</th>
+							<th>Application date</th>
+							<th>Brew Date</th>
+							<th class="td-right">Status</th>';
+							}
+						}
+						?>
 						</tr>
 					</thead>
 					<tbody id="tbody-brews">
@@ -208,7 +180,7 @@
 						<div class="clearfix"></div><div class="clearfix"></div>
 						
 						<div class="submit-btns">
-							<button type="submit" class="btn btn-submit btn-warning btn-md btn-save">
+							<button type="submit" class="btn btn-submit btn-primary btn-md btn-save">
 								<i class="fa fa-save fa-fw"></i> Brew
 							</button>
 							<button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
@@ -226,7 +198,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">Ã—</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
 					<h3 class="modal-title" id="lineModalLabel">Brew a coffee</h3>
 				</div>
 				<div class="modal-body">
@@ -314,7 +286,7 @@
 						<div class="clearfix"></div>
 						
 						<div class="submit-btns">
-							<button type="submit" class="btn btn-submit btn-warning btn-md btn-save">
+							<button type="submit" class="btn btn-submit btn-primary btn-md btn-save">
 								<i class="fa fa-save fa-fw"></i> Brew
 							</button>
 							<button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>

@@ -28,44 +28,16 @@
 
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/viewusers.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
 
     <link rel="shortcut icon" href="../images/hot-coffee-icon.png" />
 </head>
 <body>
-    <!-- navigation bar-->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container-fluid">
-	    <div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="../View/dashboard.php#"><i class="fa fa-coffee" aria-hidden="true"></i> Project Coffee</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="navbar-collapse-main">
-		<ul class="nav navbar-nav navbar-right">
-		    <li><a class="active" href="../View/dashboard.php"><i class="fa fa-home"></i> Home</a></li>
-		    <li><a href="#"><i class="fa fa-info-circle"></i> About</a></li>	
-		    <?php
-		    if(isset($_SESSION['role'])){
-			if($_SESSION['role'] == 'admin'){
-			    echo '<li><a href="../View/viewUsers.php"><i class="fa fa-gear"></i> System Configuration</a></li>';
-			}
-
-		    }
-		    ?>
-		    <li><a href="../includes/logout.inc.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
-		</ul>
-	    </div>
-	</div>
-    </nav>
+<?php include('../includes/navbar.php'); ?>
     
     <!-- Page heading-->
     <div class="page-header">
-	<div class="container-fluid">
+	<div class="container-fluid" style="margin-top:75px;">
 	  
 	</div>
     </div>
@@ -73,7 +45,7 @@
     <!--show users-->
     <div class="col-md-12">
 	<div class="panel panel-default">
-	    <div class="panel-heading">
+	    <div class="panel-heading" >
 		<div class="pull-right" style="margin-top:1%">
 		    <a href="userProfile.php" data-toggle="tooltip" class="btn btn-primary btn-flat" data-original-title="Add New User"><i class="fa fa-plus"></i></a>
 		    <button data-toggle="tooltip" class="btn btn-default btn-flat" value="Reload Page" onClick="document.location.reload(true)" data-original-title="Refresh"><i class="fa fa-refresh"></i></button>
@@ -90,8 +62,7 @@
 		    </div>
 		    <!-- /btn-group
 		</div> -->
-		<a href="../includes/cup.php"><button data-toggle="tooltip" class="btn btn-default btn-danger btn-flat" value="Reload Page" data-original-title="Refresh"><i class="fa fa-refresh"></i>Test</button></a>
-		&nbsp;<a href="../includes/clean.php"><button data-toggle="tooltip" class="btn btn-danger btn-flat" value="Reload Page" data-original-title="Refresh"><i class="fa fa-refresh"></i>Clean</button></a>
+		
 		</h1>
 	    </div>
 	    <div class="panel-body">
@@ -100,7 +71,7 @@
 		    <thead>
 			<tr>
 			    <th>
-				User id
+				User ID
 			    </th>
 			    <th>
 				Username
