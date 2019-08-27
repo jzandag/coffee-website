@@ -27,6 +27,8 @@
 	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
  	<link rel="stylesheet" href="../css/dashboard.css" />
+
+ 	<link rel="stylesheet" href="../css/radio.css" />
  	<!--<link rel="stylesheet" href="../css/common.css" /> -->
  	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" />
  	<link rel="stylesheet" href="../css/modal.css" />
@@ -35,6 +37,11 @@
 
 </head>
 <body>
+	<style type="text/css">
+		.submit-btns{
+			padding-top: 15px;
+		}
+	</style>
 	<!-- navigation bar-->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -124,53 +131,88 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">Ã—</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
 					<h3 class="modal-title" id="lineModalLabel">Brew a coffee</h3>
 				</div>
 				<div class="modal-body">
 
 					<!-- content goes here -->
 					<form class="form-horizontal" id="execute_form" action="../includes/executebrew.inc.php" method="post" autocomplete="off">
-					  
+					  	<input type="hidden" name="userid" value="<?php echo $_SESSION['id'];?>">
+
+					  	<!-- Coffee level -->
 						<label class="control-label" for="coffeeLevel">Coffee Level:</label><div class="clearfix"></div>
-						<label class="radio-inline"><input type="radio" value="1" name="coffeeLevel" checked>1</label>
-						<label class="radio-inline"><input type="radio" value="2" name="coffeeLevel">2</label>
-						<label class="radio-inline"><input type="radio" value="3" name="coffeeLevel">3</label>
+				  		<div class="btn-group" data-toggle="buttons">
+				  			<label class="btn btn-bgcolor">
+				  				<input type="radio" name="coffeeLevel" value="1" id="option1" autocomplete="off">
+				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
+				  			</label>
+				  			<label class="btn btn-bgcolor1">
+				  				<input type="radio" name="coffeeLevel" value="2" id="option2" autocomplete="off">
+				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
+				  			</label>
+				  			<label class="btn btn-bgcolor2">
+				  				<input type="radio" name="coffeeLevel" value="3" id="option3" autocomplete="off">
+				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
+				  			</label>
+
+				  		</div>
 						
 						<div class="clearfix"></div>
-						 
+						
+						<!-- Creamier level -->
 						<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
-						<label class="radio-inline"><input type="radio" value="1" name="creamerLevel" checked>1</label>
-						<label class="radio-inline"><input type="radio" value="2" name="creamerLevel">2</label>
-						<label class="radio-inline"><input type="radio" value="3" name="creamerLevel">3</label>
-						<label class="radio-inline"><input type="radio" value="4" name="creamerLevel">4</label>
-						<label class="radio-inline"><input type="radio" value="5" name="creamerLevel">5</label>
+						<div class="btn-group" data-toggle="buttons">
+							<!--  -->
+							<label class="btn btn-bgccolor">
+								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked>
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+							<label class="btn btn-bgccolor1">
+								<input type="radio" name="creamerLevel" value="2" id="option1" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+							<label class="btn btn-bgccolor2">
+								<input type="radio" name="creamerLevel" value="3" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+							<label class="btn btn-bgccolor3">
+								<input type="radio" name="creamerLevel" value="4" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+						</div>
 						
 						<div class="clearfix"></div>
 						
-						<label class="control-label" for="creamerLevel">Sugar Level:</label><div class="clearfix"></div>
-						<label class="radio-inline"><input type="radio" value="1" name="sugarLevel" checked>1</label>
-						<label class="radio-inline"><input type="radio" value="2" name="sugarLevel">2</label>
-						<label class="radio-inline"><input type="radio" value="3" name="sugarLevel">3</label>
-						<label class="radio-inline"><input type="radio" value="4" name="sugarLevel">4</label>
-						<label class="radio-inline"><input type="radio" value="5" name="sugarLevel">5</label>
+						<!-- Sugar level -->
+						<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-bgcccolor">
+								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked>
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+							<label class="btn btn-bgcccolor1">
+								<input type="radio" name="sugarLevel" value="2" id="option1" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+							<label class="btn btn-bgcccolor2">
+								<input type="radio" name="sugarLevel" value="3" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+							<label class="btn btn-bgcccolor3">
+								<input type="radio" name="sugarLevel" value="4" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+						</div>
 						
-						<div class="clearfix"></div>
-						 
-						  <!--<div class="form-group col-lg-6 col-md-6">
-							<label class="control-label" for="brewDate">Brew date:</label>
-							<div class="input-group">
-								<input class="form-control pull-right" id="brewDate" name="brewDate" />
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-							</div>
-						  </div>-->
-						<div class="clearfix"></div>
+						<div class="clearfix"></div><div class="clearfix"></div>
 						
-						<input type="hidden" name="userid" value="<?php echo $_SESSION['id'];?>">
-						<input type="submit" name="executebrew-submit" class="btn btn-warning btn-md btn-save" value="Brew">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<div class="submit-btns">
+							<button type="submit" class="btn btn-submit btn-warning btn-md btn-save">
+								<i class="fa fa-save fa-fw"></i> Brew
+							</button>
+							<button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -191,12 +233,75 @@
 
 						<!-- content goes here -->
 					<form class="form-horizontal" id="submit_form" action="../includes/saveBrew.inc.php" method="post" autocomplete="off">
-						 <div class="form-group col-lg-3">
-							<label class="control-label" for="coffeeLevel">Coffee Level:</label><div class="clearfix"></div>
-							<label class="radio-inline"><input type="radio" value="1" name="coffeeLevel" checked>1</label>
-							<label class="radio-inline"><input type="radio" value="2" name="coffeeLevel">2</label>
-							<label class="radio-inline"><input type="radio" value="3" name="coffeeLevel">3</label>
+						 <input type="hidden" name="userid" value="<?php echo $_SESSION['id'];?>">
+
+					  	<!-- Coffee level -->
+						<label class="control-label" for="coffeeLevel">Coffee Level:</label><div class="clearfix"></div>
+				  		<div class="btn-group" data-toggle="buttons">
+				  			<label class="btn btn-bgcolor">
+				  				<input type="radio" name="coffeeLevel" value="1" id="option1" autocomplete="off" checked>
+				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
+				  			</label>
+				  			<label class="btn btn-bgcolor1">
+				  				<input type="radio" name="coffeeLevel" value="2" id="option2" autocomplete="off">
+				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
+				  			</label>
+				  			<label class="btn btn-bgcolor2">
+				  				<input type="radio" name="coffeeLevel" value="3" id="option3" autocomplete="off">
+				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
+				  			</label>
+
+				  		</div>
+						
+						<div class="clearfix"></div>
+						
+						<!-- Creamier level -->
+						<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
+						<div class="btn-group" data-toggle="buttons">
+							<!--  -->
+							<label class="btn btn-bgccolor">
+								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked>
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+							<label class="btn btn-bgccolor1">
+								<input type="radio" name="creamerLevel" value="2" id="option1" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+							<label class="btn btn-bgccolor2">
+								<input type="radio" name="creamerLevel" value="3" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
+							<label class="btn btn-bgccolor3">
+								<input type="radio" name="creamerLevel" value="4" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
 						</div>
+						
+						<div class="clearfix"></div>
+						
+						<!-- Sugar level -->
+						<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-bgcccolor">
+								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked>
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+							<label class="btn btn-bgcccolor1">
+								<input type="radio" name="sugarLevel" value="2" id="option1" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+							<label class="btn btn-bgcccolor2">
+								<input type="radio" name="sugarLevel" value="3" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+							<label class="btn btn-bgcccolor3">
+								<input type="radio" name="sugarLevel" value="4" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
+						</div>
+						
+						<div class="clearfix"></div>
+
 						<div class="form-group col-lg-6 col-md-6 col-sm-4 offset-lg-1 offset-md-1 offset-sm-1">
 							<label class="control-label" for="brewDate">Brew date:</label>
 							<div class="input-group">
@@ -207,39 +312,14 @@
 							</div>
 						</div>
 						<div class="clearfix"></div>
-						<div class="form-group col-lg-5">
-							<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
-							<label class="radio-inline"><input type="radio" value="1" name="creamerLevel" checked>1</label>
-							<label class="radio-inline"><input type="radio" value="2" name="creamerLevel">2</label>
-							<label class="radio-inline"><input type="radio" value="3" name="creamerLevel">3</label>
-							<label class="radio-inline"><input type="radio" value="4" name="creamerLevel">4</label>
-							<label class="radio-inline"><input type="radio" value="5" name="creamerLevel">5</label>
-						</div>
-						<div class="clearfix"></div>
-						 <div class="form-group col-lg-5">
-							<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
-							<label class="radio-inline"><input type="radio" value="1" name="sugarLevel" checked>1</label>
-							<label class="radio-inline"><input type="radio" value="2" name="sugarLevel">2</label>
-							<label class="radio-inline"><input type="radio" value="3" name="sugarLevel">3</label>
-							<label class="radio-inline"><input type="radio" value="4" name="sugarLevel">4</label>
-							<label class="radio-inline"><input type="radio" value="5" name="sugarLevel">5</label>
-						</div>
-						<div class="clearfix"></div>
-						 
-						<!--<div class="form-group col-lg-6 col-md-6">
-							<label class="control-label" for="brewDate">Brew date:</label>
-							<div class="input-group">
-								<input class="form-control pull-right" id="brewDate" name="brewDate" />
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-							</div>
-						</div>-->
 						
-						<div class="clearfix"></div>
-						<input type="hidden" name="userid" value="<?php echo $_SESSION['id'];?>">
-						<input type="submit" name="brew-submit" class="btn btn-warning btn-md btn-save" value="Brew">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<div class="submit-btns">
+							<button type="submit" class="btn btn-submit btn-warning btn-md btn-save">
+								<i class="fa fa-save fa-fw"></i> Brew
+							</button>
+							<button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+						</div>
+
 					</form>
 				</div>
 				<div class="modal-footer">

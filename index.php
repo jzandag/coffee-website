@@ -58,7 +58,27 @@
                 update_list_main();
               },5000);
 
+<<<<<<< Updated upstream
             });
         </script>
     </body>
 </html>
+=======
+	    <!-- dto ka muna
+		    <?php
+			if(isset($_GET['error'])){
+			    if($_GET['error'] == "sqlerror"){
+				echo '<p class="signuperror">SQL Error!</p>';
+			    }
+			}
+		    ?>
+		-->
+	    <!-- Remind Passowrd -->
+	    <div id="formFooter">
+		Department of Computer Engineering
+	    </div>
+	</div>
+    </div>
+</body>
+</html>
+>>>>>>> Stashed changes
