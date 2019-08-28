@@ -30,24 +30,24 @@
  */
 
 .btn-bgccolor {
-    color: #c19c82;
-    background-color: #c19c82;
-    border-color: #c19c82;
-}
-.btn-bgccolor1 {
-    color: #bb9175;
-    background-color: #bb9175;
-    border-color: #bb9175;
-}
-.btn-bgccolor2 {
-    color: #b48768;
-    background-color:#b48768;
-    border-color: #b48768;
-}
-.btn-bgccolor3 {
-    color:#ae7d5b;
+    color: #ae7d5b;
     background-color: #ae7d5b;
     border-color: #ae7d5b;
+}
+.btn-bgccolor1 {
+    color: #b48768;
+    background-color: #b48768;
+    border-color: #b48768;
+}
+.btn-bgccolor2 {
+    color: #bb9175;
+    background-color:#bb9175;
+    border-color: #bb9175;
+}
+.btn-bgccolor3 {
+    color:#c19c82;
+    background-color: #c19c82;
+    border-color: #c19c82;
 }
 
 /*
