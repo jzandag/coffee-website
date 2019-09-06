@@ -1,25 +1,25 @@
-<!-- bootstrap links -->
-<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<!-- <!-- bootstrap links -->
+<!-- <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap/bootstrap-grid.min.css">
 <link rel="stylesheet" href="css/bootstrap/bootstrap-grid.css">
 <link rel="stylesheet" href="css/bootstrap/bootstrap-reboot.min.css">
-<link rel="stylesheet" href="css/bootstrap/bootstrap-reboot.css">
+<link rel="stylesheet" href="css/bootstrap/bootstrap-reboot.css"> -->
 
 
 
 <!-- bootstrap js -->
-<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
-<script src="js/bootstrap/bootstrap.js"></script>
+<script src="js/bootstrap/bootstrap.js"></script> -->
 
 <!-- fonts -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 
 <!-- jquery boii -->
-<script src="js/jquery-3.3.1.min.js" ></script>
+<!-- <script src="js/jquery-3.3.1.min.js" ></script> -->
 
-<style type="text/css">
+<!--<style type="text/css">
 	.modal-content {
 		border-radius: 25px;
 	}
@@ -37,4 +37,18 @@
 		border-top-left-radius: 20px;
 		color: #fff;
 	}
-</style>
+</style> -->
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="../js/common.js"></script>
+
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="../css/bootstrapValidator.min.css" />
+
+<link rel="shortcut icon" href="../images/coffeemask2.png" />

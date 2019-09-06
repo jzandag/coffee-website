@@ -17,23 +17,19 @@
 
 
 	<title>Homepage</title>
-	<script src="../js/jquery-3.3.1.min.js"></script>
-	<script src="../js/bootstrap/bootstrap.min.js"></script>
+	<?php include('../View/include.php');?>
+	
 	<script src="../js/dashboard.js"></script>
-	<script src="../js/bootstrapValidator.min.js"></script>
-	<script src="../js/bootstrap-datetimepicker.min.js"></script>
-	<script src="../js/common.js"></script>
 
-	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/font-awesome.min.css">
- 	<link rel="stylesheet" href="../css/dashboard.css" />
 
+
+	<link rel="stylesheet" href="../css/dashboard.css" />
  	<link rel="stylesheet" href="../css/radio.css" />
  	<!--<link rel="stylesheet" href="../css/common.css" /> -->
- 	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" />
+ 	
  	<link rel="stylesheet" href="../css/modal.css" />
 
-	<link rel="shortcut icon" href="../images/hot-coffee-icon.png" />
+	
 
 </head>
 <body>
@@ -43,7 +39,7 @@
 		}
 	</style>
 	<!-- navigation bar-->
-<?php include('../includes/navbar.php'); ?>
+<?php include('../View/navbar.php'); ?>
 	
 
 	<!-- confirm navigation bar  -->
@@ -103,7 +99,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 					<h3 class="modal-title" id="lineModalLabel">Brew a coffee</h3>
 				</div>
 				<div class="modal-body">

@@ -19,27 +19,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
     <title>Users</title>
+    <?php include('../View/include.php');?>
 
-    <script src="../js/common.js"></script>
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap/bootstrap.min.js"></script>
     <script src="../js/viewusers.js"></script>
 
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/dashboard.css" />
 
-    <link rel="shortcut icon" href="../images/hot-coffee-icon.png" />
 </head>
 <body>
-<?php include('../includes/navbar.php'); ?>
+	<?php include('../View/navbar.php'); ?>
     
     <!-- Page heading-->
     <div class="page-header">
-	<div class="container-fluid" style="margin-top:75px;">
-	  
-	</div>
+		<div class="container-fluid" style="margin-top:75px;">
+		  
+		</div>
     </div>
 
     <!--show users-->
@@ -50,35 +46,29 @@
 		    <a href="userProfile.php" data-toggle="tooltip" class="btn btn-primary btn-flat" data-original-title="Add New User"><i class="fa fa-plus"></i></a>
 		    <button data-toggle="tooltip" class="btn btn-default btn-flat" value="Reload Page" onClick="document.location.reload(true)" data-original-title="Refresh"><i class="fa fa-refresh"></i></button>
 		</div>
-		<h1>Users
-		<!--<div class="input-group">
-		    <div class="input-group-btn">
-			<button type="button" class="btn btn-primary btn-flat dropdown-toggle" data-toggle="dropdown">
-			<span class="fa fa-gear"> <i class="filesIcon fa fa-caret-down icon"></i></span></button>
-			<ul class="dropdown-menu">
-			    <li><a href="userProfile.php?id='.$row['id'].'"><i class="filesIcon fa fa-edit icon"></i> Edit</a></li>
-			    <li><a href="#" data-href="../includes/deleteUser.inc.php?id='.$row['id'].'" data-toggle="modal" data-target="#confirm"><i class="filesIcon fa fa-eye icon"></i> Delete</a></li>
-			</ul>
-		    </div>
-		    <!-- /btn-group
-		</div> -->
-		
-		</h1>
+			<h1><i class="fa fa-users"></i> Users
+			<!--<div class="input-group">
+			    <div class="input-group-btn">
+				<button type="button" class="btn btn-primary btn-flat dropdown-toggle" data-toggle="dropdown">
+				<span class="fa fa-gear"> <i class="filesIcon fa fa-caret-down icon"></i></span></button>
+				<ul class="dropdown-menu">
+				    <li><a href="userProfile.php?id='.$row['id'].'"><i class="filesIcon fa fa-edit icon"></i> Edit</a></li>
+				    <li><a href="#" data-href="../includes/deleteUser.inc.php?id='.$row['id'].'" data-toggle="modal" data-target="#confirm"><i class="filesIcon fa fa-eye icon"></i> Delete</a></li>
+				</ul>
+			    </div>
+			    <!-- /btn-group
+			</div> -->
+			
+			</h1>
 	    </div>
 	    <div class="panel-body">
 		<!-- users list-->
 		<table class="table table-hover table-striped table-responsive" style="margin-top: 1px;">
 		    <thead>
 			<tr>
-			    <th>
-				User ID
-			    </th>
-			    <th>
-				Username
-			    </th>
-			    <th>
-				Email
-			    </th>
+			    <th>User ID</th>
+			    <th>Username</th>
+			    <th>Email</th>
 			    <th class="td-right">Action</th>
 			</tr>
 		    </thead>

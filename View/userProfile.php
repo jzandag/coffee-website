@@ -52,30 +52,30 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	
 	<title>Users</title>
+	<?php include('../View/include.php');?>
 
-	<script src="../js/common.js"></script>
-	<script src="../js/jquery-3.3.1.min.js"></script>
-	<script src="../js/bootstrap/bootstrap.min.js"></script>
 	<!-- <script src="../js/homepage.js"></script> -->
 	<script src="../js/viewusers.js"></script>
-	<script src="../js/bootstrapValidator.min.js"></script>
 	
-	
-	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/font-awesome.min.css">
  	<link rel="stylesheet" href="../css/dashboard.css" />
- 	<link rel="stylesheet" href="../css/bootstrapValidator.min.css">
 
- 	<link rel="shortcut icon" href="../images/hot-coffee-icon.png" />
+ 	<style type="text/css">
+ 		.form-control-feedback{
+ 			width: 63px !important;
+ 			line-height: 32px !important;
+ 		}
+
+ 	</style>
 </head>
 <body>
-<?php include('../includes/navbar.php'); ?>
+	<?php include('../View/navbar.php'); ?>
     
     <!--Create user form -->
 	<div class="">
 		<form method="post" id="submit_form" action="../includes/signup.inc.php">
-			<div class="page-header" style="margin-top:75px;>
+			<div class="page-header" style="margin-top:75px;">
 				<div class="container-fluid">
 				
 				</div>
@@ -84,7 +84,7 @@
 				<div class="col-md-12" >
 					<div class="panel panel-default" >
 						<div class="panel-heading" >
-							<h1 align="center">User Profile</h1>
+							<h1 align="center"><i class="fa fa-user"></i> User Profile</h1>
 						</div>
 						<div class="panel-body">
 							<div class="form-group col-md-6 col-lg-6 col-xs-12 col-sm-12">

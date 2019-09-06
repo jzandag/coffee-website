@@ -22,13 +22,12 @@
 		max-width: 100% ;
 		height: auto ;
 		border-radius: 10px 10px 10px 10px !important; 
-<<<<<<< Updated upstream
+
 	}*/
 
 	[class^="login"] {
       transform: translateX(-150px) translateY(-200px) scale(2);
-    }
-=======
+    
 	}
 
 	#formContent{
@@ -39,7 +38,6 @@
 	  padding: 5px;
 	  font-size: 13px;
 	}
->>>>>>> Stashed changes
 }
 
 /* raspi screen */
@@ -50,9 +48,6 @@
 	img {
 		transform: scale(0.4);
 		display: none;
-<<<<<<< Updated upstream
 	}*/
-=======
-	}
->>>>>>> Stashed changes
+
 }
