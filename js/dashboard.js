@@ -70,7 +70,7 @@
     			}
     		},
             error:function(dat){
-                alert(dat.queue_list);
+                //alert(dat.queue_list);
                 
             }
     	}) 
@@ -126,4 +126,7 @@
     	load_latest_sched();
     },5000);
     /*window.location.replace("../includes/fetchQueue.inc.php");*/
+
+    /*modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');*/
+
 });

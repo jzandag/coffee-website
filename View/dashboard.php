@@ -91,6 +91,7 @@
 					</tbody>
 				 </table>
 			</div>
+			<div class="alert alert-success alert-dismissible fade"></div>
 		</div>
 	</div>
 	

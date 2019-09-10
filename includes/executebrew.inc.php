@@ -1,18 +1,23 @@
 <?php
 
 if(isset($_POST['text'])){
+
+	//THIS BLOCK OF CODE IS THE TRIGGER PART OF THE WHOLE SYSTEM
 	require "dbh.inc.php";
 
 	$getLatestquery = "SELECT * FROM coffee_request WHERE `queue`= 1 ORDER BY `brew_date`";
 	$result = mysqli_query($conn, $getLatestquery);
 	//$output = '<script>alert(\'hello\');console.log(\'igot here\');</script>';
 	
+	$output = '';
 	if(mysqli_num_rows($result) == 0){
-		$get_current_queue_query = "SELECT * FROM `coffee_request` WHERE status=0 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
+		$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
 		$result_current_queue = mysqli_query($conn, $get_current_queue_query);
 		//$output = '<script>alert(\'bp1\');console.log(\'igot here\');</script>';
 		
 		while($row = mysqli_fetch_array($result_current_queue)){
+			if($row['config_status'] == 0)
+				exit();
 			$update_query = "UPDATE coffee_request SET status=1, queue=1 WHERE coffeereq_id = ?";
 			$stmt = mysqli_stmt_init($conn);
 			//$output = '<script>alert(\'bp2\');console.log(\'igot here\');</script>';
@@ -29,7 +34,8 @@ if(isset($_POST['text'])){
 				mysqli_stmt_execute($stmt);
 			}
 			//$output = '<script>alert(\'bp3\');console.log(\'igot here\');</script>';
-			$output = "Coffee brew is in process!";
+			$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');</script>";
+
 			break;
 		
 		}

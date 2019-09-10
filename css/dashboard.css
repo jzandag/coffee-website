@@ -17,7 +17,7 @@ html, body{
 	background-color: #705d2c;
 	padding: 1% 0;
 	font-size: 1.2em;
-		
+	z-index: 3;
 }
 .navbar-default .navbar-brand{
 	color: #debf20;	
@@ -87,3 +87,22 @@ html, body{
 	height: 20em;	
 	border-radius: 25px;
 }
+
+.alert .close {
+	padding-left: 15px;
+}
+
+#notif-alert {
+	position: fixed;
+	top: 60px;
+	padding-right: 10px;
+	z-index: 4;
+}
+
+.alert-default {
+	color: #fff;
+	background-color: #c9b98b;
+	border-color: #000;
+}
+
+

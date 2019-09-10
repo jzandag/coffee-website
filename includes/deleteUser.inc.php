@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['username'] == 'admin'){
+if($_SESSION['role'] == 'admin'){
 	require 'dbh.inc.php';
 	
 	$id = $_GET['id'];
