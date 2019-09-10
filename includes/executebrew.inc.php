@@ -70,7 +70,8 @@ else if(isset($_POST['executebrew-submit'])){
 			sugar_level=?,
 			status = 0,
 			queue = 0,
-			userID = ?;";
+			userID = ?,
+			config_fk = 1;";
 			
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt,$sql)){

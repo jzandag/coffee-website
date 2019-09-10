@@ -6,5 +6,6 @@
 	 	$sql = "UPDATE `coffee_request` SET STATUS=1, queue=0 WHERE brew_date <= NOW();";
 	 	$result = mysqli_query($conn, $sql);
 
+	 	echo true;
 	 }
 ?>

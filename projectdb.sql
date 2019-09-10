@@ -30,19 +30,43 @@ CREATE TABLE `coffee_request` (
   `status` tinyint(1) NOT NULL,
   `userID` int(11) DEFAULT NULL,
   `queue` tinyint(1) DEFAULT NULL,
+  `config_fk` bigint(12) DEFAULT NULL,
   PRIMARY KEY (`coffeereq_id`),
   KEY `userID` (`userID`),
+  KEY `config_fk` (`config_fk`),
+  CONSTRAINT `config_fk` FOREIGN KEY (`config_fk`) REFERENCES `config` (`id`),
   CONSTRAINT `coffee_request_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `coffee_request` */
 
-insert  into `coffee_request`(`coffeereq_id`,`app_date`,`brew_date`,`coffee_level`,`creamer_level`,`sugar_level`,`status`,`userID`,`queue`) values 
-(5,'2019-08-09 21:42:33','2019-08-21 22:50:00',3,4,4,1,2,0),
-(6,'2019-08-09 22:23:43','2019-08-14 11:50:00',3,1,1,1,1,0),
-(7,'2019-08-13 09:53:33','2019-08-16 16:55:00',1,5,1,1,1,0),
-(8,'2019-08-16 13:54:07','2019-08-31 11:55:00',1,1,1,1,1,0),
-(9,'2019-08-23 18:25:55','2019-08-23 18:25:55',2,3,4,1,1,0);
+insert  into `coffee_request`(`coffeereq_id`,`app_date`,`brew_date`,`coffee_level`,`creamer_level`,`sugar_level`,`status`,`userID`,`queue`,`config_fk`) values 
+(5,'2019-08-09 21:42:33','2019-08-21 22:50:00',3,4,4,1,2,0,1),
+(6,'2019-08-09 22:23:43','2019-08-14 11:50:00',3,1,1,1,1,0,1),
+(7,'2019-08-13 09:53:33','2019-08-16 16:55:00',1,5,1,1,1,0,1),
+(8,'2019-08-16 13:54:07','2019-08-31 11:55:00',1,1,1,1,1,0,NULL),
+(9,'2019-08-23 18:25:55','2019-08-23 18:25:55',2,3,4,1,1,0,1),
+(10,'2019-09-10 18:35:56','2019-09-30 23:35:00',1,1,1,0,2,0,1),
+(11,'2019-09-10 18:36:52','2019-09-30 23:35:00',1,1,1,0,2,0,1),
+(12,'2019-09-10 18:37:35','2019-09-30 23:35:00',1,1,1,0,2,0,1),
+(13,'2019-09-10 18:38:15','2019-09-14 18:35:00',3,4,4,0,2,0,1);
+
+/*Table structure for table `config` */
+
+DROP TABLE IF EXISTS `config`;
+
+CREATE TABLE `config` (
+  `id` bigint(15) NOT NULL AUTO_INCREMENT,
+  `config_key` varchar(255) DEFAULT NULL,
+  `config_value` varchar(255) DEFAULT NULL,
+  `config_status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `config` */
+
+insert  into `config`(`id`,`config_key`,`config_value`,`config_status`) values 
+(1,'SYSTEM_MAINTENANCE','System Maintenance','1');
 
 /*Table structure for table `users` */
 
@@ -64,7 +88,7 @@ insert  into `users`(`id`,`username`,`email`,`password`,`role`) values
 (2,'admin','zidrexandag10@gmail.com','$2y$10$xNdGa1RybCaxZQrtJxgIS.qI8/dyHgxXB/QV0MDIjBYgsttrD1sq.','admin'),
 (3,'RedTequila ','dendenbuyco@yahoo.com','$2y$10$nikeegNDJHeg92Hygt6mz.LiOZ2BcOiU62WkgHS1QAyv0DySz/rUy','user'),
 (4,'raspi','raspi@gmail.com\r\n','$2y$10$oSliI8ySIZY9v84VwcBjZO2pw/Nh157gg1ezHNpmI7DImejRb77Ey','machine'),
-(5,'hellow','hellow@gmail.com','$2y$10$JH0IHuuQ5STNnHRmETqdE.TI5GB6FLNQrtNy508Wmgd3txy90De1m','user');
+(5,'helloww','hellow@gmail.com','$2y$10$CBKKzL1yFWGVSk0ty5Y0rO5X6j1sJC18yGyXQ70.VnMe1c.AMrlG6','user');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

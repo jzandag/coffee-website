@@ -18,7 +18,7 @@ if(isset($_POST['brew-submit'])){
 	$applicationDate = $dt->format('Y-m-d H:i:s');
 	
 	echo $applicationDate;
-	echo $reqdate;
+	/*echo $reqdate;*/
 	
 	/*CREATE TABLE coffee_request (
 	coffeereq_id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -41,7 +41,8 @@ if(isset($_POST['brew-submit'])){
 			sugar_level=?,
 			status=0,
 			queue=0,
-			userID = ?;";
+			userID = ?,
+			config_fk = 1;";
 	$stmt = mysqli_stmt_init($conn);
 	if(!mysqli_stmt_prepare($stmt,$sql)){
 		header("Location: ../View/dashboard.php?error=brewFail");
@@ -49,7 +50,7 @@ if(isset($_POST['brew-submit'])){
 	}else{
 		mysqli_stmt_bind_param($stmt,"ssssss", $applicationDate, $brewDate,$coffeeLevel, $creamerLevel,$sugarLevel,$_POST['userid']);
 		mysqli_stmt_execute($stmt);
-		header("Location: ../View/dashboard.php?brewApplication=success");
+		header("Location: ../View/dashboard.php?success=brewApplication");
 		exit();
 	
 	

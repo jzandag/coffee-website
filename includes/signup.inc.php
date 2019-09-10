@@ -21,6 +21,12 @@ if(isset($_POST['signup-submit'])){
 			
 			mysqli_stmt_bind_param($stmt,"sssss", $username, $email, $hashedPwd,$role, $_POST['id']);
 			mysqli_stmt_execute($stmt);
+			if($_SESSION['id'] == $_POST['id']){
+				session_start();
+				$_SESSION['username'] = $username;
+				$_SESSION['role'] = $role;
+			}
+			/**/
 			header("Location: ../View/viewUsers.php?update=success");
 			exit();
 		}

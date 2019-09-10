@@ -50,15 +50,15 @@
 				<div class="center" style="margin-top:25px">
 					<div class="col-xs-12 col-sm-4" style="margin-bottom:5px">
 					<a href="#" data-toggle="modal" data-target="#brewnow">
-						<button class="btn btn-primary btn-block">Brew now</button>
+						<button class="btn btn-primary btn-block">Brew now</button></a>
 					</div>
 					<div class="col-xs-12 col-sm-4" style="margin-bottom:5px">
 					<a href="#" data-toggle="modal" data-target="#schedbrew">
-						<button class="btn btn-primary btn-block">Schedule</button>
+						<button class="btn btn-primary btn-block">Schedule</button></a>
 					</div>
 					<div class="col-xs-12 col-sm-4">
-					<a href="#" data-toggle="modal" data-target="">
-						<button class="btn btn-primary btn-block">Analytics</button>
+					<a href="#" data-toggle="modal" data-target="#roundspaceModal">
+						<button class="btn btn-primary btn-block">Analytics</button></a>
 					</div>	
 				</div>
 			</div>
@@ -77,17 +77,17 @@
 							<th class="td-right">Status</th>';
 							}
 							else {
-								echo '<th>No.</th>
-							<th>Application date</th>
-							<th>Brew Date</th>
-							<th class="td-right">Status</th>';
+								echo '  <th>No.</th>
+										<th>Application date</th>
+										<th>Brew Date</th>
+										<th class="td-right">Status</th>';
 							}
 						}
 						?>
 						</tr>
 					</thead>
 					<tbody id="tbody-brews">
-
+						<tr><td colspan=5 class="success text-center" ><a href="#" class="text-bold text-italic"><i class="fa fa-spinner fa-spin"></i> loading . . . </td></tr>
 					</tbody>
 				 </table>
 			</div>
@@ -111,8 +111,8 @@
 					  	<!-- Coffee level -->
 						<label class="control-label" for="coffeeLevel">Coffee Level:</label><div class="clearfix"></div>
 				  		<div class="btn-group" data-toggle="buttons">
-				  			<label class="btn btn-bgcolor">
-				  				<input type="radio" name="coffeeLevel" value="1" id="option1" autocomplete="off">
+				  			<label class="btn btn-bgcolor active">
+				  				<input type="radio" name="coffeeLevel" value="1" id="option1" autocomplete="off" checked="checked">
 				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
 				  			</label>
 				  			<label class="btn btn-bgcolor1">
@@ -132,8 +132,8 @@
 						<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
 							<!--  -->
-							<label class="btn btn-bgccolor">
-								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked>
+							<label class="btn btn-bgccolor active">
+								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
 							</label>
 							<label class="btn btn-bgccolor1">
@@ -155,8 +155,8 @@
 						<!-- Sugar level -->
 						<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-bgcccolor">
-								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked>
+							<label class="btn btn-bgcccolor active">
+								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
 							</label>
 							<label class="btn btn-bgcccolor1">
@@ -176,9 +176,10 @@
 						<div class="clearfix"></div><div class="clearfix"></div>
 						
 						<div class="submit-btns">
-							<button type="submit" class="btn btn-submit btn-primary btn-md btn-save">
+							<!-- <button type="submit" class="btn btn-submit btn-primary btn-md btn-save">
 								<i class="fa fa-save fa-fw"></i> Brew
-							</button>
+							</button> -->
+							<input type="submit" name="executebrew-submit" class="btn btn-warning btn-md btn-save" value=' Brew'>
 							<button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
 						</div>
 					</form>
@@ -206,8 +207,8 @@
 					  	<!-- Coffee level -->
 						<label class="control-label" for="coffeeLevel">Coffee Level:</label><div class="clearfix"></div>
 				  		<div class="btn-group" data-toggle="buttons">
-				  			<label class="btn btn-bgcolor">
-				  				<input type="radio" name="coffeeLevel" value="1" id="option1" autocomplete="off" checked>
+				  			<label class="btn btn-bgcolor active">
+				  				<input type="radio" name="coffeeLevel" value="1" id="option1" autocomplete="off" checked="checked">
 				  				<span class="glyphicon glyphicon-ok" style="color:white"></span>
 				  			</label>
 				  			<label class="btn btn-bgcolor1">
@@ -227,8 +228,8 @@
 						<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
 							<!--  -->
-							<label class="btn btn-bgccolor">
-								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked>
+							<label class="btn btn-bgccolor active">
+								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
 							</label>
 							<label class="btn btn-bgccolor1">
@@ -250,8 +251,8 @@
 						<!-- Sugar level -->
 						<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-bgcccolor">
-								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked>
+							<label class="btn btn-bgcccolor active">
+								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
 							</label>
 							<label class="btn btn-bgcccolor1">
@@ -282,9 +283,10 @@
 						<div class="clearfix"></div>
 						
 						<div class="submit-btns">
-							<button type="submit" class="btn btn-submit btn-primary btn-md btn-save">
+							<!-- <button type="submit" class="btn btn-submit btn-primary btn-md btn-save">
 								<i class="fa fa-save fa-fw"></i> Brew
-							</button>
+							</button> -->
+							<input type="submit" name="brew-submit" class="btn btn-warning btn-md btn-save" value=' Brew'>
 							<button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
 						</div>
 

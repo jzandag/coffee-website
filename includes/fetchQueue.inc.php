@@ -1,6 +1,6 @@
 <?php
 
-	
+	header('Content-type: application/json');
 if(isset($_POST['view'])){
 
 	require "dbh.inc.php"; 
@@ -28,9 +28,7 @@ if(isset($_POST['view'])){
 		}	
 	}
 	else{
-		$output .= '
-			<tr><td colspan=5 class="danger text-center" ><a href="#" class="text-bold text-italic">No scheduled brew</td></tr>
-		';
+		$output .= '<tr><td colspan=5 class="danger text-center" ><a href="#" class="text-bold text-italic">No scheduled brew</td></tr>';
 	}
 	$queryZeroStatus = "SELECT * FROM coffee_request WHERE status = 0";
 	$resultZeroStatus = mysqli_query($conn, $queryZeroStatus);
@@ -39,7 +37,6 @@ if(isset($_POST['view'])){
 		'queue_list' 	=> $output,
 		'queue_count' 	=> $count
 	);
-	mysqli_stmt_close($stmt);
 	mysqli_close($conn);
 	
 	echo json_encode($data);

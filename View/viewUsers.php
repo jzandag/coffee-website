@@ -5,7 +5,7 @@
 		header("Location: http://localhost/smart-coffee/index.php?error=notlogged");
 	
 		exit();
-    }else if($_SESSION['username'] != 'admin'){
+    }else if($_SESSION['role'] != 'admin'){
 	header("Location: ../View/dashboard.php?error=unauthorized");
 	exit();
       

@@ -19,6 +19,8 @@
 
 
  $(document).ready(function(){
+
+
  	$('#brewDate').datetimepicker({
  		autoclose: true,
  		todayBtn: true,
@@ -55,6 +57,7 @@
 
     //AJAX Request
     function load_data_queue(view = ''){
+        var result;
     	$.ajax({
     		url:"../includes/fetchQueue.inc.php",
     		method:"POST",
@@ -65,7 +68,11 @@
     			if(data.queue_count > 0){
     				$('.count').html(data.queue_count);
     			}
-    		}	
+    		},
+            error:function(dat){
+                alert(dat.queue_list);
+                
+            }
     	}) 
     }
     
@@ -77,17 +84,22 @@
     		dataType: "json",
     		success: function(data){
     			$('#test').html(data.alert);
-    		}
+    		},
+            complete: function(data){
+                $('#test').html(data.alert);
+            }
     	})
     }
 
+    //function for asynchronously updating previos unbrewed requests
     function update_list(text = ''){
+        console.log('you got here');
     	$.ajax({
     		url: "../includes/updateQueueList.inc.php",
     		method: "POST",
     		data: {update: ''},
     		dataType: "json",
-    		success: function(data){
+    		success: function(){
     			console.log('update previous unbrewed brews success');
     		}
     	})
@@ -101,10 +113,10 @@
 		console.log($('input[name="coffeeLevel"]:checked').val());
 	})
 
-	$('.btn-close').click(function (){
+	/*$('.btn-close').click(function (){
 		$('label').removeClass('active');
 		$('input[type="radio"]').removeAttr('checked');
-	});
+	});*/
 
     load_data_queue();
     load_latest_sched();
@@ -113,4 +125,5 @@
     	load_data_queue();
     	load_latest_sched();
     },5000);
+    /*window.location.replace("../includes/fetchQueue.inc.php");*/
 });
