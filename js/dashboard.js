@@ -3,7 +3,7 @@
  */
 
  $(document).ready(function(){
-    
+
     $(".dropdown").hover(function() {
         $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
         $(this).toggleClass('open');
@@ -122,5 +122,21 @@
     /*window.location.replace("../includes/fetchQueue.inc.php");*/
 
     /*modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');*/
+
+    //DASHBOARD ANALYTICS JS
+    $('#anlyt1').on('click',function(){
+        $('.btn-primary').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('#anlyt2').on('click',function(){
+        $('.btn-primary').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('#anlyt3').on('click',function(){
+        $('.btn-primary').removeClass('active');
+        $(this).addClass('active');
+    });
 
 });

@@ -325,9 +325,9 @@
 				</div>
 				<div class="modal-body">
 					<div class="btn-group pull-right">
-						<button type="button" class="btn btn-primary btn-xs active">Apple</button>
-						<button type="button" class="btn btn-primary btn-xs">Samsung</button>
-						<button type="button" class="btn btn-primary btn-xs">Sony</button>
+						<button id="anlyt1" type="button" class="btn btn-primary btn-xs active" >1</button>
+						<button id="anlyt2" type="button" class="btn btn-primary btn-xs">2</button>
+						<button id="anlyt3" type="button" class="btn btn-primary btn-xs">3</button>
 					</div>
 					<div class="clearfix"></div>
 
