@@ -133,6 +133,10 @@
 						<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
 							<!--  -->
+							<label class="btn btn-bgcolor2">
+								<input type="radio" name="creamerLevel" value="0" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
 							<label class="btn btn-bgccolor active">
 								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
@@ -156,6 +160,10 @@
 						<!-- Sugar level -->
 						<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-bgccolor3">
+								<input type="radio" name="sugarLevel" value="0" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
+							</label>
 							<label class="btn btn-bgcccolor active">
 								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
@@ -308,16 +316,47 @@
 					<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
 				</div>
 				<div class="modal-body">
-					
-					<!-- content goes here -->
-					database
+					<div class="btn-group pull-right">
+						<button type="button" class="btn btn-primary btn-xs active">Apple</button>
+						<button type="button" class="btn btn-primary btn-xs">Samsung</button>
+						<button type="button" class="btn btn-primary btn-xs">Sony</button>
+					</div>
+					<div class="clearfix"></div>
+
 				</div>
 				<div class="modal-footer">
-					
+					hellos
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="test" class="padding container-fluid"></div>
+
+	<!-- <div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-defualt" >
+				<div class="panel-heading with-border">
+					<h1>SSS Table Details</h1>
+					<div class=" pull-right">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-plus"></i>
+						</button>
+					</div>
+				</div>
+				<div class="panel-body" >
+					<div class="row">
+						<div class="col-lg-12" id="sss-table-body">
+							<div class="form-group col-lg-2 col-md-2">
+								 <button type="button" id="black-coffee" class="btn btn-box-tool">Black Coffee</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+		</div>
+	</div> -->
+
 </body>
 </html>

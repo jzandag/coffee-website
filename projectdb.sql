@@ -34,22 +34,22 @@ CREATE TABLE `coffee_request` (
   PRIMARY KEY (`coffeereq_id`),
   KEY `userID` (`userID`),
   KEY `config_fk` (`config_fk`),
-  CONSTRAINT `config_fk` FOREIGN KEY (`config_fk`) REFERENCES `config` (`id`),
-  CONSTRAINT `coffee_request_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `coffee_request_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`),
+  CONSTRAINT `config_fk` FOREIGN KEY (`config_fk`) REFERENCES `config` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `coffee_request` */
 
 insert  into `coffee_request`(`coffeereq_id`,`app_date`,`brew_date`,`coffee_level`,`creamer_level`,`sugar_level`,`status`,`userID`,`queue`,`config_fk`) values 
-(5,'2019-08-09 21:42:33','2019-08-21 22:50:00',3,4,4,1,2,0,1),
-(6,'2019-08-09 22:23:43','2019-08-14 11:50:00',3,1,1,1,1,0,1),
-(7,'2019-08-13 09:53:33','2019-08-16 16:55:00',1,5,1,1,1,0,1),
-(8,'2019-08-16 13:54:07','2019-08-31 11:55:00',1,1,1,1,1,0,NULL),
-(9,'2019-08-23 18:25:55','2019-08-23 18:25:55',2,3,4,1,1,0,1),
-(10,'2019-09-10 18:35:56','2019-09-30 23:35:00',1,1,1,0,2,0,1),
-(11,'2019-09-10 18:36:52','2019-09-30 23:35:00',1,1,1,0,2,0,1),
-(12,'2019-09-10 18:37:35','2019-09-30 23:35:00',1,1,1,0,2,0,1),
-(13,'2019-09-10 18:38:15','2019-09-14 18:35:00',3,4,4,0,2,0,1);
+(7,'2019-09-17 17:51:13','2019-09-17 17:51:13',1,2,2,1,2,0,1),
+(8,'2019-09-17 17:52:40','2019-09-17 17:52:40',1,1,1,1,2,0,1),
+(9,'2019-09-17 17:54:41','2019-09-17 17:54:41',1,3,3,1,2,0,1),
+(10,'2019-09-17 17:54:53','2019-09-17 17:54:53',1,4,4,1,2,0,1),
+(11,'2019-09-17 17:55:32','2019-09-18 17:56:00',1,1,1,1,2,0,1),
+(12,'2019-09-17 17:58:19','2019-09-17 17:58:19',1,3,3,1,2,0,1),
+(13,'2019-09-17 18:01:55','2019-09-17 18:01:55',1,3,3,1,2,0,1),
+(14,'2019-09-17 18:02:08','2019-09-17 18:02:08',1,3,3,1,2,0,1),
+(15,'2019-09-17 18:02:18','2019-09-17 18:02:18',1,4,4,1,2,0,1);
 
 /*Table structure for table `config` */
 

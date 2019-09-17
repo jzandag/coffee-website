@@ -34,7 +34,8 @@ if(isset($_POST['text'])){
 				mysqli_stmt_execute($stmt);
 			}
 			//$output = '<script>alert(\'bp3\');console.log(\'igot here\');</script>';
-			$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');</script>";
+			/*if($_SESSION['id'] == $row['userID'])*/
+				$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');console.log('coffee brew!')</script>";
 
 			break;
 		

@@ -2,24 +2,17 @@
  * if you're reading this, good luck!
  */
 
-
- $(function(){
- 	$(".dropdown").hover(
- 		function() {
- 			$('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
- 			$(this).toggleClass('open');
- 			$('b', this).toggleClass("caret caret-up");
- 		},
- 		function() {
- 			$('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
- 			$(this).toggleClass('open');
- 			$('b', this).toggleClass("caret caret-up");
- 		});
- });
-
-
  $(document).ready(function(){
-
+    
+    $(".dropdown").hover(function() {
+        $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+        $(this).toggleClass('open');
+        $('b', this).toggleClass("caret caret-up");
+    },function() {
+        $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+        $(this).toggleClass('open');
+        $('b', this).toggleClass("caret caret-up");
+    });
 
  	$('#brewDate').datetimepicker({
  		autoclose: true,
@@ -41,17 +34,18 @@
  				validators: {
  					notEmpty: {
  						message: 'This field cannot be empty!'
-		    }/*,
-		    date:{
-			max: '2099-12-30 22:55:00',
-			min: new Date(),
-			message: 'Invalid date'
-		}*/
-	}
-}
-}
-});
- 	$('#brewDate').on('keypressed',function(){
+        		    }/*,
+        		    date:{
+        			max: '2099-12-30 22:55:00',
+        			min: new Date(),
+        			message: 'Invalid date'
+        		}*/
+        	   }
+            }
+        }
+    });
+ 	
+    $('#brewDate').on('keypressed',function(){
 
  	})
 
@@ -121,10 +115,10 @@
     load_data_queue();
     load_latest_sched();
     setInterval(function(){
-    	update_list();
+    	//update_list();
     	load_data_queue();
     	load_latest_sched();
-    },5000);
+    },6000);
     /*window.location.replace("../includes/fetchQueue.inc.php");*/
 
     /*modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');*/
