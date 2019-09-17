@@ -49,6 +49,7 @@
 <script src="../js/plugins/jquery.dataTables.min.js"></script>
 <script src="../js/plugins/dataTables.bootstrap.min.js"></script>
 <script src="../js/plugins/morris.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 
 <script src="../js/common.js"></script>
 
