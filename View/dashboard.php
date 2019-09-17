@@ -237,6 +237,10 @@
 						<label class="control-label" for="creamerLevel">Creamer Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
 							<!--  -->
+							<label class="btn btn-bgcolor2">
+								<input type="radio" name="creamerLevel" value="0" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
 							<label class="btn btn-bgccolor active">
 								<input type="radio" name="creamerLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
@@ -260,6 +264,10 @@
 						<!-- Sugar level -->
 						<label class="control-label" for="sugarLevel">Sugar Level:</label><div class="clearfix"></div>
 						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-bgcolor2">
+								<input type="radio" name="creamerLevel" value="0" id="option2" autocomplete="off">
+								<span class="glyphicon glyphicon-ok" style="color:#800000"></span>
+							</label>
 							<label class="btn btn-bgcccolor active">
 								<input type="radio" name="sugarLevel" value="1" id="option2" autocomplete="off" checked="checked">
 								<span class="glyphicon glyphicon-ok" style="color:#8B4513"></span>
