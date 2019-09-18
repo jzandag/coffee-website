@@ -1,50 +1,64 @@
 <?php
-
+session_start();
 if(isset($_POST['text'])){
 
 	//THIS BLOCK OF CODE IS THE TRIGGER PART OF THE WHOLE SYSTEM
 	require "dbh.inc.php";
-
-	$getLatestquery = "SELECT * FROM coffee_request WHERE `queue`= 1 ORDER BY `brew_date`";
-	$result = mysqli_query($conn, $getLatestquery);
-	//$output = '<script>alert(\'hello\');console.log(\'igot here\');</script>';
-	
-	$output = '';
-	if(mysqli_num_rows($result) == 0){
-		$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
-		$result_current_queue = mysqli_query($conn, $get_current_queue_query);
-		//$output = '<script>alert(\'bp1\');console.log(\'igot here\');</script>';
+	$test = shell_exec("python dict.py");
+	if ((strcmp($test,"test")==1)||(strcmp($test,"test")==2))
+	{
+		$getLatestquery = "SELECT * FROM coffee_request WHERE `queue`= 1 ORDER BY `brew_date`";
+		$result = mysqli_query($conn, $getLatestquery);
+		//$output = '<script>alert(\'hello\');console.log(\'igot here\');</script>';
 		
-		while($row = mysqli_fetch_array($result_current_queue)){
-			if($row['config_status'] == 0)
-				exit();
-			$update_query = "UPDATE coffee_request SET status=1, queue=1 WHERE coffeereq_id = ?";
-			$stmt = mysqli_stmt_init($conn);
-			//$output = '<script>alert(\'bp2\');console.log(\'igot here\');</script>';
-			if(mysqli_stmt_prepare($stmt,$update_query)){
-				mysqli_stmt_bind_param($stmt,"s",$row['coffeereq_id']);
-				mysqli_stmt_execute($stmt);
-			}
-			//1 means tapos na sa status
-			shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);
-			$update_query = "UPDATE coffee_request SET queue=0 WHERE coffeereq_id = ?";
-			$stmt = mysqli_stmt_init($conn);
-			if(mysqli_stmt_prepare($stmt,$update_query)){
-				mysqli_stmt_bind_param($stmt,"s",$row['coffeereq_id']);
-				mysqli_stmt_execute($stmt);
-			}
-			//$output = '<script>alert(\'bp3\');console.log(\'igot here\');</script>';
-			/*if($_SESSION['id'] == $row['userID'])*/
-				$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');console.log('coffee brew!')</script>";
+		$output = '';
+		if(mysqli_num_rows($result) == 0){
+			$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
+			$result_current_queue = mysqli_query($conn, $get_current_queue_query);
+			//$output = '<script>alert(\'bp1\');console.log(\'igot here\');</script>';
+			
+			while($row = mysqli_fetch_array($result_current_queue)){
+				if($row['config_status'] == 0)
+					exit();
+				$update_query = "UPDATE coffee_request SET status=1, queue=1 WHERE coffeereq_id = ?";
+				$stmt = mysqli_stmt_init($conn);
+				
+				if(mysqli_stmt_prepare($stmt,$update_query)){
+					mysqli_stmt_bind_param($stmt,"s",$row['coffeereq_id']);
+					mysqli_stmt_execute($stmt);
+				}
+				
+				if(strcmp($test,"test")==1)
+					{
+					shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);
+						if($_SESSION['id'] == $row['userID'])
+							$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve at slot #1');console.log('coffee brew!')</script>";
+					}
+				else
+					{
+					shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);
+						if($_SESSION['id'] == $row['userID'])
+							$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve at slot #2');console.log('coffee brew!')</script>";
+					}
+				$update_query = "UPDATE coffee_request SET queue=0 WHERE coffeereq_id = ?";
+				$stmt = mysqli_stmt_init($conn);
+				if(mysqli_stmt_prepare($stmt,$update_query)){
+					mysqli_stmt_bind_param($stmt,"s",$row['coffeereq_id']);
+					mysqli_stmt_execute($stmt);
+				}
+				//$output = '<script>alert(\'bp3\');console.log(\'igot here\');</script>';
+				
 
-			break;
-		
+				break;
+			
+			}
+			
 		}
-		
 	}
-	else{
-	
-	}
+	else
+		{
+			$output = "<script>modalAlertMessage('Coffee Brew', $test);console.log('coffee brew!')</script>";
+		}
 	
 	$data = array(
 		'alert' 	=> $output
@@ -90,14 +104,11 @@ else if(isset($_POST['executebrew-submit'])){
 		//shell_exec('sudo python /var/www/html/script/coffee.py ' .$coffeeLevel.' ' .$sugarLevel.' ' .$creamerLevel);	
 		
 		header("Location: ../View/dashboard.php?brew=success");
-		exit();
-	
-	
-	
-	
+		exit();		
 	}
 	mysqli_stmt_close($stmt);
 	mysqli_close($conn);
+	
 }else{
 	
 }
