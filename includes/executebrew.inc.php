@@ -13,7 +13,7 @@ if(isset($_POST['text'])){
 		
 		$output = '';
 		if(mysqli_num_rows($result) == 0){
-			$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
+			$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 or status=2 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
 			$result_current_queue = mysqli_query($conn, $get_current_queue_query);
 			//$output = '<script>alert(\'bp1\');console.log(\'igot here\');</script>';
 			

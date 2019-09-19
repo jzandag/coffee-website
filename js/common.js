@@ -99,11 +99,12 @@ function showModal($element, title, message) {
 
 function modalAlertMessage(description, info) {
 	var notifTemplate = $('#notif-template');
-	notifTemplate.find('.alert .desc-message').text(description);
-	notifTemplate.find('.alert .info-message').text(info);
+
+	notifTemplate.find('.alert .notif-message .desc-message').text(description);
+	notifTemplate.find('.alert .notif-message .info-message').text(info);
 	
 	$('#notif-alert .alert-group').append(notifTemplate.html());
-	$('#notif-alert .alert-group div.alert').fadeIn().delay(60000).fadeOut(function(){
+	$('#notif-alert .alert-group div.alert').fadeIn().delay(1800).fadeOut(function(){
 		$(this).remove();
     });
 }
@@ -140,27 +141,6 @@ function checkValue(value,arr){
   
 
   return status;
-}
-
-
-function ModeleOnSession() {
-	var moduleId = $('#moduleId').val();
-	$.ajax({
-		type : "POST",
-		url : baseUrl+"/admin/user/module",
-		data : {
-			moduleId:moduleId
-		},
-		success : function(response) {
-			
-		},
-		error : function(e) {
-		//show error message
-		},
-		complete: function() {
-		   	//close modal
-		}
-	});
 }
 
 function findGetParameter(parameterName) {
@@ -208,4 +188,24 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
             '<a href="{3}" target="{4}" data-notify="url"></a>' +
             '</div>'
         });
+
+
+function ModeleOnSession() {
+	var moduleId = $('#moduleId').val();
+	$.ajax({
+		type : "POST",
+		url : baseUrl+"/admin/user/module",
+		data : {
+			moduleId:moduleId
+		},
+		success : function(response) {
+			
+		},
+		error : function(e) {
+		//show error message
+		},
+		complete: function() {
+		   	//close modal
+		}
+	});
 }

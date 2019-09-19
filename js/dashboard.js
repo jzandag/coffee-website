@@ -78,11 +78,25 @@
     		dataType: "json",
     		success: function(data){
     			$('#test').html(data.alert);
+
     		},
             complete: function(data){
-                $('#test').html(data.alert);
+                $('#test').html('');
             }
-    	})
+    	});
+
+        $.ajax({
+            url: "../includes/executebrew.inc.php",
+            method: "POST",
+            data: {disable:''},
+            dataType: "json",
+            success: function(data){
+                
+            },
+            complete: function(data){
+
+            }
+        });
     }
 
     //function for asynchronously updating previos unbrewed requests

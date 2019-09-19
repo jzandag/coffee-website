@@ -39,7 +39,7 @@ if(isset($_POST['brew-submit'])){
 			coffee_level=?,
 			creamer_level=?,
 			sugar_level=?,
-			status=0,
+			status=2,
 			queue=0,
 			userID = ?,
 			config_fk = 1;";
