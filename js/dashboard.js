@@ -91,7 +91,13 @@
             data: {disable:''},
             dataType: "json",
             success: function(data){
-                
+                if(data.result){
+                    $('.btn-brew').attr("disabled",true);
+                    $('.btn-brew').attr("title","There is a queue");
+                }else{
+                    $('.btn-brew').attr("disabled",false);
+                    $('.btn-brew').attr("title","");
+                }
             },
             complete: function(data){
 

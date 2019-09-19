@@ -11,7 +11,7 @@ if(isset($_POST['text'])){
 		$result = mysqli_query($conn, $getLatestquery);
 		//$output = '<script>alert(\'hello\');console.log(\'igot here\');</script>';
 		
-		$output = '';
+		$output = 'kk';
 		if(mysqli_num_rows($result) == 0){
 			$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 or status=2 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
 			$result_current_queue = mysqli_query($conn, $get_current_queue_query);
@@ -80,8 +80,10 @@ else if(isset($_POST['executebrew-submit'])){
 	$dt->setTimestamp($timestamp); //adjust the object to correct timestamp
 	echo $dt->format('Y-m-d H:i:s');
 	
-	$brewDate = $dt->format('Y-m-d H:i:s');
 	$applicationDate = $dt->format('Y-m-d H:i:s');
+	$dt->modify('+5 seconds');
+	
+	$brewDate = $dt->format('Y-m-d H:i:s');
 	
 	$sql = "INSERT INTO coffee_request 
 			SET app_date=?,
@@ -109,6 +111,32 @@ else if(isset($_POST['executebrew-submit'])){
 	mysqli_stmt_close($stmt);
 	mysqli_close($conn);
 	
+}else if(isset($_POST['disable'])){
+	require "dbh.inc.php";
+
+	$getQueue = "SELECT * FROM coffee_request WHERE status=0 and userID = ?";
+	$stmt = mysqli_stmt_init($conn);
+
+	if(!mysqli_stmt_prepare($stmt,$getQueue)){
+		header("Location: ../View/dashboard.php?error=sqlfail");
+		exit();
+	}else{
+		mysqli_stmt_bind_param($stmt,"s",$_SESSION['id']);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_store_result($stmt);
+		$resultCheck = mysqli_stmt_num_rows($stmt);
+
+		if($resultCheck > 0){
+			$result = true;
+		}else
+			$result = false;
+
+		$data = array(
+			'result' 	=> $result
+		);
+
+		echo json_encode($data);
+	}
 }else{
 	
 }

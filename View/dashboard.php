@@ -50,11 +50,11 @@
 				<div class="center" style="margin-top:25px">
 					<div class="col-xs-12 col-sm-4" style="margin-bottom:5px">
 					<a href="#" data-toggle="modal" data-target="#brewnow">
-						<button class="btn btn-primary btn-block">Brew now</button></a>
+						<button class="btn btn-primary btn-brew btn-block" data-toggle="tooltip">Brew now</button></a>
 					</div>
 					<div class="col-xs-12 col-sm-4" style="margin-bottom:5px">
 					<a href="#" data-toggle="modal" data-target="#schedbrew">
-						<button class="btn btn-primary btn-block">Schedule</button></a>
+						<button class="btn btn-primary btn-brew btn-block" data-toggle="tooltip">Schedule</button></a>
 					</div>
 					<div class="col-xs-12 col-sm-4">
 					<a href="#" data-toggle="modal" data-target="#roundspaceModal">

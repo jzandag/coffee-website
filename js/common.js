@@ -100,8 +100,8 @@ function showModal($element, title, message) {
 function modalAlertMessage(description, info) {
 	var notifTemplate = $('#notif-template');
 
-	notifTemplate.find('.alert .notif-message .desc-message').text(description);
-	notifTemplate.find('.alert .notif-message .info-message').text(info);
+	notifTemplate.find('.alert .desc-message').text(description);
+	notifTemplate.find('.alert .info-message').text(info);
 	
 	$('#notif-alert .alert-group').append(notifTemplate.html());
 	$('#notif-alert .alert-group div.alert').fadeIn().delay(1800).fadeOut(function(){
@@ -188,7 +188,7 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
             '<a href="{3}" target="{4}" data-notify="url"></a>' +
             '</div>'
         });
-
+}
 
 function ModeleOnSession() {
 	var moduleId = $('#moduleId').val();
@@ -209,3 +209,4 @@ function ModeleOnSession() {
 		}
 	});
 }
+
