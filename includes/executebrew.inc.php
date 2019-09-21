@@ -5,13 +5,14 @@ if(isset($_POST['text'])){
 	//THIS BLOCK OF CODE IS THE TRIGGER PART OF THE WHOLE SYSTEM
 	require "dbh.inc.php";
 	$test = shell_exec("python dict.py");
-	if ((strcmp($test,"test")==1)||(strcmp($test,"test")==2))
-	{
+	$output = "";
+/*	if ((strcmp($test,"test")==1)||(strcmp($test,"test")==2)){*/
+
 		$getLatestquery = "SELECT * FROM coffee_request WHERE `queue`= 1 ORDER BY `brew_date`";
 		$result = mysqli_query($conn, $getLatestquery);
 		//$output = '<script>alert(\'hello\');console.log(\'igot here\');</script>';
 		
-		$output = 'kk';
+		$output = '';
 		if(mysqli_num_rows($result) == 0){
 			$get_current_queue_query = "SELECT * FROM `coffee_request` INNER JOIN config ON config_fk = config.id WHERE status=0 or status=2 AND brew_date <= now() ORDER BY brew_date LIMIT 1";
 			$result_current_queue = mysqli_query($conn, $get_current_queue_query);
@@ -27,19 +28,13 @@ if(isset($_POST['text'])){
 					mysqli_stmt_bind_param($stmt,"s",$row['coffeereq_id']);
 					mysqli_stmt_execute($stmt);
 				}
-				
-				if(strcmp($test,"test")==1)
-					{
-					shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);
-						if($_SESSION['id'] == $row['userID'])
-							$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve at slot #1');console.log('coffee brew!')</script>";
-					}
-				else
-					{
-					shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);
-						if($_SESSION['id'] == $row['userID'])
-							$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve at slot #2');console.log('coffee brew!')</script>";
-					}
+
+					/*shell_exec('sudo python /var/www/html/script/coffee.py ' .$row['coffee_level'].' ' .$row['sugar_level'].' ' .$row['creamer_level']);*/
+				if($_SESSION['id'] == $row['userID'])
+					$output = "<script>modalAlertMessage('Coffee Brew', 'Coffee is ready to serve at slot #2');console.log('coffee brew!');</script>";
+
+				/*echo $_SESSION['id']." id of session, ".$row['userID']." id of coffee request <br/>"  ;*/
+				/*$output = $_SESSION['id']." id of session, ".$row['userID']." id of coffee request <br/>"  ; */
 				$update_query = "UPDATE coffee_request SET queue=0 WHERE coffeereq_id = ?";
 				$stmt = mysqli_stmt_init($conn);
 				if(mysqli_stmt_prepare($stmt,$update_query)){
@@ -54,11 +49,6 @@ if(isset($_POST['text'])){
 			}
 			
 		}
-	}
-	else
-		{
-			$output = "<script>modalAlertMessage('Coffee Brew', $test);console.log('coffee brew!')</script>";
-		}
 	
 	$data = array(
 		'alert' 	=> $output
@@ -66,7 +56,7 @@ if(isset($_POST['text'])){
 	echo json_encode($data);
 	
 }
-else if(isset($_POST['executebrew-submit'])){
+else if(isset($_POST['coffeeLevel'])){
 	require "dbh.inc.php";
 	
 	$coffeeLevel = $_POST['coffeeLevel'];

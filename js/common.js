@@ -2,6 +2,11 @@
  * PREDEFINED JAVASCRIPT FUNCTIONS
  */
 
+ $(document).ready(function(){
+
+ 	 $('.btn-brew').tooltip();
+ });
+
 function update_list_main(text = ''){
     $.ajax({
         url: "../coffee-website/includes/updateQueueList.inc.php",
@@ -21,64 +26,6 @@ function convertToNumber(value) {
 
 function convert2Decimal(value) {
 	return Number(value).toFixed(2);
-}
-
-function escapeKeyClear() {
-	$(window).bind('keydown', function(e) {
-		if(e.keyCode === 27) { 
-			clearModalSearch();
-		}
-	});
-}
-
-function checkValue(value, element) {
-	if(value) {
-		$(element).css("border-color","");
-		return false;
-	} else {
-		$(element).css({"border-color":"red"});
-		return true;
-	}
-}
-
-function validateEmail(value) {
-	if(value) {
-		return !emailReg.test(value);
-	}
-}
-
-function showErrorMessage(value, isSuccess, element, message) {
-	if(isSuccess) {
-		element.parents('div.form-group').removeClass('has-success');
-		element.parents('div.form-group').addClass('has-feedback has-error');
-		element.siblings('i').addClass('glyphicon glyphicon-remove');
-		element.siblings('i').css('display', 'block');
-		
-		if(value) {
-			element.parents('div.form-group').find('.error-message').remove();
-			element.parents('div.form-group').append('<small class="help-block error-message" data-bv-validator="isExisting" data-bv-result="INVALID" style="display: block;">'+ message +'</small>'
-			);
-		}
-		
-		if(!value) {
-			// value is empty
-			element.parents('div.form-group').find('.error-message').remove();
-			element.parents('div.form-group').append('<small class="help-block error-message" data-bv-validator="isExisting" data-bv-result="INVALID" style="display: block;">'+ message +'</small>'
-			);
-		}
-		
-		$('.btn-primary').attr('disabled', 'disabled');
-	} else {
-		element.parents('div.form-group').removeClass('has-error');
-		element.siblings('i').removeClass('glyphicon-remove');
-		element.parents('div.form-group').find('small.error-message').css('display', 'none');
-		
-		element.parents('div.form-group').addClass('has-feedback has-success');
-		element.siblings('i').addClass('glyphicon glyphicon-ok');
-		element.siblings('i').css('display', 'block');
-		//TODO: check if form still has-error class
-		$('.btn-primary').attr('disabled', false);
-	}
 }
 
 function clearMessage(element) {
@@ -109,40 +56,6 @@ function modalAlertMessage(description, info) {
     });
 }
 
-function hideButton(){
-	ModeleOnSession();
-	var item = $('#writeItem').val();
-	var moduleId = $('#moduleId').val();
-	var array = item.split(',');
-    
-	if(item != "") {
-	    if(checkValue(moduleId,array) == 'Not exist') {
-	    	/*$('.btn-primary[type="submit"]').addClass("hide");
-	    	$("a:contains(Create)").addClass("hide");
-	    	$("a:contains(Compose)").addClass("hide");*/
-	    	
-	    	$('.btn-primary[type="submit"]').remove();
-	    	$("a:contains(Create)").remove();
-	    	$("a:contains(Compose)").remove();
-	    }
-	}
-}
-
-function checkValue(value,arr){
-  var status = 'Not exist';
-  
-  for(var i=0; i<arr.length; i++){
-    var name = arr[i];
-    if(name == value){
-      status = 'Exist';
-      break;
-    }
-  }
-  
-
-  return status;
-}
-
 function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
@@ -154,59 +67,4 @@ function findGetParameter(parameterName) {
     return result;
 }
 
-function showNotification(colorName, text, placementFrom, placementAlign, animateEnter, animateExit) {
-    if (colorName === null || colorName === '') { colorName = 'bg-black'; }
-    if (text === null || text === '') { text = 'Turning standard Bootstrap alerts'; }
-    if (animateEnter === null || animateEnter === '') { animateEnter = 'animated fadeInDown'; }
-    if (animateExit === null || animateExit === '') { animateExit = 'animated fadeOutUp'; }
-    var allowDismiss = true;
-
-    $.notify({
-        message: text
-    },
-        {
-            type: colorName,
-            allow_dismiss: allowDismiss,
-            newest_on_top: true,
-            timer: 1000,
-            placement: {
-                from: placementFrom,
-                align: placementAlign
-            },
-            animate: {
-                enter: animateEnter,
-                exit: animateExit
-            },
-            template: '<div data-notify="container" class="bootstrap-notify-container alert alert-dismissible {0} ' + (allowDismiss ? "p-r-35" : "") + '" role="alert">' +
-            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">�</button>' +
-            '<span data-notify="icon"></span> ' +
-            '<span data-notify="title">{1}</span> ' +
-            '<span data-notify="message">{2}</span>' +
-            '<div class="progress" data-notify="progressbar">' +
-            '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-            '</div>' +
-            '<a href="{3}" target="{4}" data-notify="url"></a>' +
-            '</div>'
-        });
-}
-
-function ModeleOnSession() {
-	var moduleId = $('#moduleId').val();
-	$.ajax({
-		type : "POST",
-		url : baseUrl+"/admin/user/module",
-		data : {
-			moduleId:moduleId
-		},
-		success : function(response) {
-			
-		},
-		error : function(e) {
-		//show error message
-		},
-		complete: function() {
-		   	//close modal
-		}
-	});
-}
 

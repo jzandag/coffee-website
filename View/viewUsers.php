@@ -58,7 +58,9 @@
 			    </div>
 			    <!-- /btn-group
 			</div> -->
+			<a href="../includes/cup.php"><button data-toggle="tooltip" class="btn btn-default btn-danger btn-flat" value="Reload Page" data-original-title="Refresh"><i class="fa fa-refresh"></i> Cup Test</button></a>
 			
+			<a href="../includes/clean.php"><button data-toggle="tooltip" class="btn btn-danger btn-flat" value="Reload Page" data-original-title="Refresh"><i class="fa fa-refresh"></i> Clean</button></a>
 			</h1>
 	    </div>
 	    <div class="panel-body">

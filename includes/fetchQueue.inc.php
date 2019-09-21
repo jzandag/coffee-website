@@ -11,9 +11,9 @@ if(isset($_POST['view'])){
 
 	$query = '';
 	if($_SESSION['role'] == 'admin'){
-		$query = "SELECT coffee_request.*,users.username FROM coffee_request JOIN users ON userID = users.id WHERE `status` = 0 ORDER BY brew_date LIMIT 6"; 
+		$query = "SELECT coffee_request.*,users.username FROM coffee_request JOIN users ON userID = users.id WHERE `status` = 0 or status = 2 ORDER BY brew_date LIMIT 6"; 
 	}else if($_SESSION['role'] != 'admin'){
-		$query = "SELECT coffee_request.*,users.username FROM coffee_request JOIN users ON userID = users.id WHERE `status` = 0 and userID = ".$_SESSION['id']." ORDER BY brew_date LIMIT 6"; 
+		$query = "SELECT coffee_request.*,users.username FROM coffee_request JOIN users ON userID = users.id WHERE `status` = 0 or status = 2 and userID = ".$_SESSION['id']." ORDER BY brew_date LIMIT 6"; 
 	}
 	//$query = "SELECT coffee_request.*,users.username FROM coffee_request JOIN users ON userID = users.id WHERE `status` = 0 ORDER BY brew_date LIMIT 6"; 
 	
@@ -41,7 +41,7 @@ if(isset($_POST['view'])){
 						<td>'.$count.'</td>
 						<td>'.$row['app_date'].'</td>
 						<td>'.$row['brew_date'].'</td>
-						<td>'.($row['status'] == 0 ? 'ON-QUEUE' : 'ONGOING').'</td>
+						<td>'.($row['status'] == 0 ? 'ON-QUEUE' : 'SCHEDULED').'</td>
 					</tr>
 				';$count++;
 			}	

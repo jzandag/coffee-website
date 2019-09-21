@@ -4,6 +4,10 @@
 
  $(document).ready(function(){
 
+    /*jQuery.ajaxSetup({
+        async: false;
+    });
+*/
     $(".dropdown").hover(function() {
         $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
         $(this).toggleClass('open');
@@ -34,20 +38,11 @@
  				validators: {
  					notEmpty: {
  						message: 'This field cannot be empty!'
-        		    }/*,
-        		    date:{
-        			max: '2099-12-30 22:55:00',
-        			min: new Date(),
-        			message: 'Invalid date'
-        		}*/
+        		    }
         	   }
             }
         }
     });
- 	
-    $('#brewDate').on('keypressed',function(){
-
- 	})
 
     //AJAX Request
     function load_data_queue(view = ''){
@@ -98,27 +93,10 @@
                     $('.btn-brew').attr("disabled",false);
                     $('.btn-brew').attr("title","");
                 }
-            },
-            complete: function(data){
-
             }
         });
     }
 
-    //function for asynchronously updating previos unbrewed requests
-    function update_list(text = ''){
-        console.log('you got here');
-    	$.ajax({
-    		url: "../includes/updateQueueList.inc.php",
-    		method: "POST",
-    		data: {update: ''},
-    		dataType: "json",
-    		success: function(){
-    			console.log('update previous unbrewed brews success');
-    		}
-    	})
-    }
-    
     $('label').click(function(event) {
 	  	// not asynchronous code such as Ajax because it does not wait for response and move to next line
 	  	$(this).parent().find('input[type="radio"]').removeAttr('checked');
@@ -127,11 +105,6 @@
 		console.log($('input[name="coffeeLevel"]:checked').val());
 	})
 
-	/*$('.btn-close').click(function (){
-		$('label').removeClass('active');
-		$('input[type="radio"]').removeAttr('checked');
-	});*/
-
     load_data_queue();
     load_latest_sched();
     setInterval(function(){
@@ -139,12 +112,37 @@
     	load_data_queue();
     	load_latest_sched();
     },6000);
-    /*window.location.replace("../includes/fetchQueue.inc.php");*/
 
-    /*modalAlertMessage('Coffee Brew', 'Coffee is ready to serve');*/
+    $('#execute_form').submit(function(event){
+        event.preventDefault();
+        $('#brewnow').modal('toggle');
+        $.ajax({
+            url: "../includes/executebrew.inc.php",
+            method: "POST",
+            data: $('#execute_form').serialize(),
+            success: function(data){
+
+            }
+        });
+
+    });
+
+    $('#submit_form').submit(function(event){
+        event.preventDefault();
+        $('#schedbrew').modal('toggle');
+        $.ajax({
+            url: "../includes/saveBrew.inc.php",
+            method: "POST",
+            data: $('#submit_form').serialize(),
+            success: function(data){
+
+            }
+        });
+        
+    });
 
     //DASHBOARD ANALYTICS JS
-    $('#anlyt1').on('click',function(){
+    /*$('#anlyt1').on('click',function(){
         $('.btn-primary').removeClass('active');
         $(this).addClass('active');
     });
@@ -223,6 +221,6 @@
         {label: "Mail-Order Sales", value: 20}
       ],
       hideHover: 'auto'
-    });
+    });*/
 
 });

@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['brew-submit'])){
+if(isset($_POST['coffeeLevel'])){
 	
 	require '../includes/dbh.inc.php';
 	
