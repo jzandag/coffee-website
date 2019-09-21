@@ -30,7 +30,7 @@ if(isset($_POST['view'])){
 						<td>'.$row['app_date'].'</td>
 						<td>'.$row['brew_date'].'</td>
 						<td>'.$row['username'].'</td>
-						<td>'.$row['status'].'</td>
+						<td>'.($row['status'] == 0 ? 'ON-QUEUE' : 'SCHEDULED').'</td>
 					</tr>
 				';$count++;
 			}
