@@ -111,7 +111,7 @@
     	//update_list();
     	load_data_queue();
     	load_latest_sched();
-    },6000);
+    },8000);
 
     $('#execute_form').submit(function(event){
         event.preventDefault();

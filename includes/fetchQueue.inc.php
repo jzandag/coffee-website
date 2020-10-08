@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	header('Content-type: application/json');
-if(isset($_POST['view'])){
+/*if(isset($_POST['view'])){*/
 
 	require "dbh.inc.php"; 
 	if($_POST["view"] != ''){
@@ -61,4 +61,4 @@ if(isset($_POST['view'])){
 	echo json_encode($data);
 
 	
-}
+/*}*/
